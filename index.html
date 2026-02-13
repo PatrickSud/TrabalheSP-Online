@@ -1323,19 +1323,25 @@
 
     <!-- ========== FAQ ========== -->
     <section id="faq" class="py-20 md:py-28 bg-slate-50">
-      <div class="max-w-3xl mx-auto px-4">
+      <div class="max-w-5xl mx-auto px-4">
         <div class="text-center mb-14 fade-up">
           <span
             class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
-            >FAQ</span
+            ><i class="fa-solid fa-circle-question mr-1"></i> FAQ</span
           >
           <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
             Perguntas Frequentes
           </h2>
-          <p class="text-slate-500">Tire suas dúvidas antes de começar.</p>
+          <p class="text-slate-500 max-w-xl mx-auto">
+            Tire suas dúvidas antes de começar. Reunimos as perguntas mais
+            comuns sobre a plataforma.
+          </p>
         </div>
 
-        <div class="space-y-3 fade-up">
+        <div class="grid md:grid-cols-2 gap-4 items-start fade-up">
+          <!-- Coluna 1 -->
+
+          <!-- Q1 - Nova -->
           <div
             class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
@@ -1343,8 +1349,68 @@
               class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
               aria-expanded="false"
             >
-              <span class="font-semibold text-slate-900 pr-4"
-                >Preciso pagar para começar?</span
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i
+                  class="fa-solid fa-building-columns text-brand-500 text-sm"
+                ></i>
+                Quem é a Siltanen &amp; Partners?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Fundada em 1999 por Rob Siltanen em Los Angeles, somos uma
+                agência global de publicidade e tecnologia. Hoje temos sede
+                registrada também no Reino Unido e atuamos em mais de 30 países
+                conectando marcas a avaliadores.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q2 - Nova -->
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i class="fa-solid fa-coins text-brand-500 text-sm"></i> Por
+                que as empresas pagam por avaliações?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Sua tarefa ajuda a aumentar a visibilidade e o ranking de
+                atrações turísticas globais. As empresas contratantes pagam para
+                melhorar sua reputação online, e nós repassamos a maior parte
+                desse valor (60-80%) para você, o avaliador.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q3 - Antiga: Preciso pagar? -->
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i
+                  class="fa-solid fa-hand-holding-dollar text-brand-500 text-sm"
+                ></i>
+                Preciso pagar para começar?</span
               >
               <i
                 class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
@@ -1358,6 +1424,8 @@
               </p>
             </div>
           </div>
+
+          <!-- Q4 - Antiga: Como recebo? -->
           <div
             class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
@@ -1365,8 +1433,10 @@
               class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
               aria-expanded="false"
             >
-              <span class="font-semibold text-slate-900 pr-4"
-                >Como recebo meus ganhos?</span
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i class="fa-solid fa-wallet text-brand-500 text-sm"></i> Como
+                recebo meus ganhos?</span
               >
               <i
                 class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
@@ -1380,6 +1450,8 @@
               </p>
             </div>
           </div>
+
+          <!-- Q5 - Nova: Convidar amigos -->
           <div
             class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
@@ -1387,8 +1459,10 @@
               class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
               aria-expanded="false"
             >
-              <span class="font-semibold text-slate-900 pr-4"
-                >Preciso de experiência prévia?</span
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i class="fa-solid fa-user-group text-brand-500 text-sm"></i> O
+                que acontece se eu convidar amigos?</span
               >
               <i
                 class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
@@ -1396,12 +1470,14 @@
             </button>
             <div class="faq-answer px-6">
               <p class="text-slate-500 text-sm leading-relaxed pb-5">
-                Não, o sistema é intuitivo e guiado. Qualquer pessoa com acesso
-                à internet e um celular ou computador pode realizar as tarefas
-                sem dificuldade.
+                A Siltanen incentiva o crescimento da comunidade. Você pode se
+                tornar um líder de equipe e receber bônus de gestão pela
+                produtividade do seu time, sem retirar nada dos ganhos deles.
               </p>
             </div>
           </div>
+
+          <!-- Q6 - Nova: Preciso de computador? -->
           <div
             class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
@@ -1409,8 +1485,38 @@
               class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
               aria-expanded="false"
             >
-              <span class="font-semibold text-slate-900 pr-4"
-                >Quantas tarefas posso fazer por dia?</span
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i
+                  class="fa-solid fa-mobile-screen text-brand-500 text-sm"
+                ></i>
+                Preciso de computador ou experiência técnica?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Não. Nossa plataforma foi desenhada para ser 100% mobile. Se
+                você sabe usar um smartphone e tem acesso à internet, já está
+                qualificado para começar as avaliações.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q7 - Antiga: Quantas tarefas? -->
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i class="fa-solid fa-list-check text-brand-500 text-sm"></i>
+                Quantas tarefas posso fazer por dia?</span
               >
               <i
                 class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
@@ -1424,6 +1530,8 @@
               </p>
             </div>
           </div>
+
+          <!-- Q8 - Antiga: Empresa confiável? -->
           <div
             class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
@@ -1431,8 +1539,12 @@
               class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
               aria-expanded="false"
             >
-              <span class="font-semibold text-slate-900 pr-4"
-                >A empresa é confiável?</span
+              <span
+                class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
+                ><i
+                  class="fa-solid fa-shield-halved text-brand-500 text-sm"
+                ></i>
+                A empresa é confiável?</span
               >
               <i
                 class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
