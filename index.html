@@ -1920,22 +1920,18 @@
             class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             id="modal-panel"
           >
-            <div
-              class="bg-amber-100 px-4 py-3 sm:px-6 border-b border-amber-200"
-            >
+            <div class="bg-blue-600 px-4 py-3 sm:px-6 border-b border-blue-700">
               <div class="flex items-center gap-3">
                 <div
-                  class="mx-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-200 sm:mx-0"
+                  class="mx-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-500 sm:mx-0"
                 >
-                  <i
-                    class="fa-solid fa-triangle-exclamation text-amber-600 text-lg"
-                  ></i>
+                  <i class="fa-solid fa-circle-info text-white text-lg"></i>
                 </div>
                 <h3
-                  class="text-base font-bold leading-6 text-amber-800"
+                  class="text-base font-bold leading-6 text-white"
                   id="modal-title"
                 >
-                  Etapa de Validação Obrigatória
+                  Etapa de Orientação
                 </h3>
               </div>
             </div>
@@ -1945,7 +1941,7 @@
                 <p class="text-sm text-slate-500 mb-4">
                   Para garantir sua vaga no
                   <strong class="text-slate-900">Plano Intern (Gratuito)</strong
-                  >, siga este passo simples:
+                  >, siga este passo a passo:
                 </p>
                 <ol
                   class="list-decimal list-inside text-sm text-slate-600 space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100"
@@ -1957,12 +1953,12 @@
                   <li>
                     Após finalizar o cadastro,
                     <strong class="text-brand-600"
-                      >tire um print da tela de confirmação</strong
+                      >tire um print da guia "Minha área"</strong
                     >.
                   </li>
                   <li>
-                    Envie esse print no nosso WhatsApp para liberarmos suas
-                    tarefas imediatamente.
+                    Envie esse print no nosso WhatsApp para passarmos mais
+                    orientações e adicionarmos em nosso grupo.
                   </li>
                 </ol>
               </div>
@@ -1973,9 +1969,8 @@
             >
               <a
                 href="https://sp4567.com/rNYX63k"
-                onclick="fecharModal()"
                 target="_blank"
-                class="inline-flex w-full justify-center rounded-xl bg-brand-600 px-3 py-3 text-sm font-bold text-white shadow-sm hover:bg-brand-500 sm:w-auto transition-all items-center gap-2"
+                class="btn-final inline-flex w-full justify-center rounded-xl bg-brand-600 px-3 py-3 text-sm font-bold text-white shadow-sm hover:bg-brand-500 sm:w-auto transition-all items-center gap-2"
               >
                 Entendi, ir para o Cadastro
                 <i class="fa-solid fa-arrow-right"></i>
@@ -1995,16 +1990,20 @@
     </div>
 
     <script>
-      // Elementos do Modal
+      // Elementos
       const modal = document.getElementById('modal-validacao')
       const backdrop = document.getElementById('modal-backdrop')
       const panel = document.getElementById('modal-panel')
 
-      // Função para abrir o modal com animação
+      // Função para abrir o modal
       function abrirValidacao(event) {
-        if (event) event.preventDefault()
+        // Se quem foi clicado for o botão final de dentro do modal, NÃO faz nada (deixa o link abrir)
+        if (event.target.closest('.btn-final')) return
+
+        if (event) event.preventDefault() // Bloqueia o link original
 
         modal.classList.remove('hidden')
+        // Animação de entrada
         setTimeout(() => {
           backdrop.classList.remove('opacity-0')
           panel.classList.remove(
@@ -2017,16 +2016,16 @@
         }, 10)
       }
 
-      // Função para fechar
-      function fecharModal() {
-        // O link vai abrir em nova aba, modal fica aberto para lembrar do WhatsApp
-      }
-
-      // APLICAR A TODOS OS BOTÕES DE CADASTRO
+      // APLICAR A TODOS OS LINKS DE CADASTRO (Exceto o do próprio modal)
       document.addEventListener('DOMContentLoaded', () => {
+        // Seleciona todos os links que apontam para o sistema
         const linksCadastro = document.querySelectorAll('a[href*="sp4567.com"]')
+
         linksCadastro.forEach(link => {
-          link.addEventListener('click', abrirValidacao)
+          // Só adiciona o interceptador se NÃO for o botão final
+          if (!link.classList.contains('btn-final')) {
+            link.addEventListener('click', abrirValidacao)
+          }
         })
       })
     </script>
