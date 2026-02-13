@@ -88,6 +88,12 @@
         scroll-behavior: smooth;
       }
 
+      /* Tooltip image preview */
+      .tooltip-wrap:hover .tooltip-img,
+      .tooltip-wrap.active .tooltip-img {
+        display: block !important;
+      }
+
       /* Glow CTA pulse */
       @keyframes glow-pulse {
         0% {
@@ -1963,13 +1969,14 @@
                       >tire um print da guia "Minha área"</strong
                     >
                     <span
-                      class="relative inline-block align-middle ml-1 group cursor-help"
+                      class="tooltip-wrap relative inline-block align-middle ml-1 cursor-help"
+                      onclick="this.classList.toggle('active')"
                     >
                       <i
                         class="fa-solid fa-circle-question text-brand-400 text-sm"
                       ></i>
                       <span
-                        class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50"
+                        class="tooltip-img absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 hidden"
                       >
                         <img
                           src="minha-area.png"
