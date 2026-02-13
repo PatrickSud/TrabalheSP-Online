@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      SP - Siltanen & Partners | Trabalho Remoto de Avaliação de Mídia
+    </title>
+    <meta
+      name="description"
+      content="Trabalhe pelo celular avaliando atrações turísticas globais. Cadastro gratuito no plano de estágio. Receba por tarefa concluída."
+    />
+
+    <!-- ========== INÍCIO: Pixel do Facebook (Meta) ========== -->
+    <!-- Cole aqui o código do Pixel do Facebook/Meta -->
+    <!-- Exemplo: <script>!function(f,b,e,v,n,t,s){...}('YOUR_PIXEL_ID');</script> -->
+    <!-- ========== FIM: Pixel do Facebook (Meta) ========== -->
+
+    <!-- ========== INÍCIO: Google Ads / Google Tag Manager ========== -->
+    <!-- Cole aqui o código da Tag do Google Ads (gtag.js) ou Google Tag Manager -->
+    <!-- Exemplo: <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script> -->
+    <!-- ========== FIM: Google Ads / Google Tag Manager ========== -->
+
+    <!-- Google Fonts — Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+            colors: {
+              primary: {
+                50: '#eef2ff',
+                100: '#e0e7ff',
+                200: '#c7d2fe',
+                300: '#a5b4fc',
+                400: '#818cf8',
+                500: '#6366f1',
+                600: '#4f46e5',
+                700: '#4338ca',
+                800: '#3730a3',
+                900: '#312e81'
+              },
+              secondary: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6',
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95'
+              },
+              accent: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                200: '#a7f3d0',
+                300: '#6ee7b7',
+                400: '#34d399',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+                800: '#065f46',
+                900: '#064e3b'
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Glow CTA pulse */
+      @keyframes glow-pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 14px rgba(79, 70, 229, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+        }
+      }
+      .btn-glow {
+        animation: glow-pulse 2.2s ease-out infinite;
+      }
+      .btn-glow:hover {
+        box-shadow: 0 0 30px rgba(79, 70, 229, 0.4);
+      }
+
+      /* Fade-in on scroll */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease-out,
+          transform 0.6s ease-out;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* FAQ accordion */
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.35s ease,
+          padding 0.35s ease;
+      }
+      .faq-answer.open {
+        max-height: 200px;
+      }
+
+      /* Header scroll */
+      .header-scrolled {
+        box-shadow: 0 4px 30px rgba(79, 70, 229, 0.08);
+        border-bottom-color: rgba(99, 102, 241, 0.1);
+      }
+
+      /* WhatsApp float */
+      @keyframes wa-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .whatsapp-float {
+        animation: wa-bounce 2s ease-in-out infinite;
+      }
+
+      /* Urgency bar */
+      .urgency-bar {
+        background: linear-gradient(
+          90deg,
+          #4f46e5 0%,
+          #7c3aed 50%,
+          #4f46e5 100%
+        );
+        background-size: 200% 100%;
+        animation: urgency-shift 3s ease infinite;
+      }
+      @keyframes urgency-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Mesh gradient hero */
+      .hero-mesh {
+        background: linear-gradient(
+          135deg,
+          #312e81 0%,
+          #4338ca 25%,
+          #6d28d9 50%,
+          #4f46e5 75%,
+          #312e81 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-mesh::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(139, 92, 246, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(99, 102, 241, 0.25) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 80%,
+            rgba(124, 58, 237, 0.2) 0%,
+            transparent 50%
+          );
+        animation: mesh-move 8s ease-in-out infinite alternate;
+      }
+      @keyframes mesh-move {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate(-5%, 5%) rotate(3deg);
+        }
+      }
+
+      /* Glass card */
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      /* Range slider */
+      input[type='range'].calc-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 9999px;
+        outline: none;
+        cursor: pointer;
+      }
+      input[type='range'].calc-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+        cursor: pointer;
+        transition: transform 0.15s ease;
+      }
+      input[type='range'].calc-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
+      }
+      input[type='range'].calc-slider::-moz-range-thumb {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+        cursor: pointer;
+      }
+
+      /* Gradient text */
+      .text-gradient {
+        background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Calculator tab active */
+      .calc-tab {
+        transition: all 0.2s ease;
+      }
+      .calc-tab.active {
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+      }
+      .calc-tab:not(.active) {
+        background: #f1f5f9;
+        color: #64748b;
+      }
+      .calc-tab:not(.active):hover {
+        background: #e2e8f0;
+        color: #334155;
+      }
+
+      /* Countdown mono */
+      .countdown-digit {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-700 bg-slate-50 antialiased">
+    <!-- ========== URGENCY BAR WITH COUNTDOWN ========== -->
+    <div
+      id="urgency-bar"
+      class="urgency-bar fixed top-0 left-0 w-full z-[60] text-white text-center text-xs sm:text-sm font-semibold py-2.5 px-4"
+    >
+      <span
+        ><i class="fa-solid fa-bolt mr-1"></i> Vagas para o nível Intern -
+        Estágio (Gratuito) disponíveis!</span
+      >
+      <button
+        onclick="
+          document.getElementById('urgency-bar').style.display = 'none'
+          document.getElementById('header').style.top = '0'
+          document.getElementById('cadastro').style.paddingTop = '7rem'
+        "
+        class="ml-3 text-white/60 hover:text-white text-base leading-none"
+        aria-label="Fechar"
+      >
+        &times;
+      </button>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header
+      id="header"
+      class="fixed top-10 left-0 w-full bg-white/70 backdrop-blur-md z-50 transition-all duration-300 border-b border-slate-100"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3 md:py-4"
+      >
+        <a
+          href="#"
+          class="flex items-center gap-2.5 text-primary-700 font-extrabold text-xl md:text-2xl tracking-tight"
+        >
+          <img src="Logo-SP.png" alt="Logo SP" class="h-8 md:h-9 w-auto" />
+          <span class="hidden sm:inline">Siltanen &amp; Partners</span>
+        </a>
+        <a
+          href="https://sp4567.com/rNYX63k"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white text-sm md:text-base font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30"
+        >
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          Acesso ao Sistema
+        </a>
+      </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section
+      id="cadastro"
+      class="hero-mesh text-white pt-36 pb-20 md:pt-44 md:pb-28"
+    >
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-secondary-400/20 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-96 h-96 bg-primary-400/15 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-500/10 rounded-full blur-3xl"
+      ></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-8"
+        >
+          <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
+          Plano Intern — 100% Gratuito
+        </div>
+
+        <h1
+          class="text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight"
+        >
+          Trabalhe pelo Celular<br />Avaliando Atrações Turísticas
+        </h1>
+        <p
+          class="text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          Participe da equipe Siltanen &amp; Partners. Comece hoje no plano de
+          estágio sem taxas. Avalie mídias e receba por tarefa concluída.
+        </p>
+
+        <a
+          href="https://sp4567.com/rNYX63k"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-glow inline-flex items-center gap-3 bg-white text-primary-700 hover:bg-primary-50 font-bold text-lg md:text-xl px-10 py-4 rounded-2xl shadow-2xl hover:shadow-primary-500/25 transition-all duration-300 mb-4"
+        >
+          <i class="fa-solid fa-rocket"></i>
+          Começar Agora — Cadastro Grátis
+        </a>
+        <p class="text-indigo-200/80 text-sm">
+          &#128274; Cadastro seguro e verificado
+        </p>
+
+        <div
+          class="flex flex-wrap items-center justify-center gap-6 mt-8 text-indigo-300 text-sm"
+        >
+          <span class="flex items-center gap-1.5"
+            ><i class="fa-solid fa-shield-halved"></i> Registro UK</span
+          >
+          <span class="flex items-center gap-1.5"
+            ><i class="fa-solid fa-globe"></i> 30+ Países</span
+          >
+          <span class="flex items-center gap-1.5"
+            ><i class="fa-solid fa-headset"></i> Suporte 24/7</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COMO FUNCIONA ========== -->
+    <section id="como-funciona" class="py-20 md:py-28 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-14 fade-up">
+          <span
+            class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            >Como Funciona</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
+            Três passos para começar
+          </h2>
+          <p class="text-slate-500 max-w-xl mx-auto">
+            Simples, rápido e de qualquer lugar do mundo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div
+            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-primary-500/25 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <span
+              class="inline-block bg-primary-50 text-primary-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
+              >PASSO 1</span
+            >
+            <h3 class="text-lg font-bold text-slate-900 mb-2">
+              Cadastro Simplificado
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Crie sua conta em menos de 2 minutos e tenha acesso imediato ao
+              nível Intern (Estágio).
+            </p>
+          </div>
+
+          <div
+            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-primary-500/25 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <span
+              class="inline-block bg-primary-50 text-primary-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
+              >PASSO 2</span
+            >
+            <h3 class="text-lg font-bold text-slate-900 mb-2">
+              Realize Tarefas
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Receba tarefas diárias de avaliação de turismo. Simples, rápido e
+              guiado.
+            </p>
+          </div>
+
+          <div
+            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-accent-500/25 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <span
+              class="inline-block bg-accent-50 text-accent-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
+              >PASSO 3</span
+            >
+            <h3 class="text-lg font-bold text-slate-900 mb-2">
+              Receba Recompensas
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Acumule ganhos diários e solicite saque diretamente pela
+              plataforma.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== A TAREFA ========== -->
+    <section id="tarefa" class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-up order-2 md:order-1">
+            <span
+              class="inline-block bg-secondary-100 text-secondary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+              >Conheça a Tarefa</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 leading-tight"
+            >
+              Avalie Atrações Turísticas do Mundo Todo
+            </h2>
+            <p class="text-slate-500 leading-relaxed mb-6">
+              Sua missão é ajudar a aumentar a visibilidade de atrações
+              turísticas. Basta avaliar fotos e vídeos de locais como Rússia,
+              Tailândia e Turquia. Cada avaliação leva poucos minutos e pode ser
+              feita direto do seu celular.
+            </p>
+            <ul class="space-y-3 text-sm text-slate-600">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-accent-500 mt-0.5"></i
+                ><span>Tarefas rápidas — complete em minutos</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-accent-500 mt-0.5"></i
+                ><span>Interface intuitiva e guiada passo a passo</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-circle-check text-accent-500 mt-0.5"></i
+                ><span>Funciona em qualquer dispositivo com internet</span>
+              </li>
+            </ul>
+          </div>
+          <div class="fade-up order-1 md:order-2 flex justify-center">
+            <div class="relative w-full max-w-sm">
+              <div
+                class="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-3xl blur-2xl"
+              ></div>
+              <img
+                src="assets/app-task.jpg"
+                alt="Tela de tarefas do aplicativo SP"
+                class="relative w-full h-auto rounded-2xl shadow-2xl border border-white/50"
+                loading="lazy"
+              />
+              <div
+                class="absolute -bottom-3 -right-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg"
+              >
+                <i class="fa-solid fa-mobile-screen-button mr-1"></i> App SP
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CALCULADORA MULTI-NÍVEL ========== -->
+    <section id="calculadora" class="py-20 md:py-28 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-14 fade-up">
+          <span
+            class="inline-block bg-accent-100 text-accent-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            >Simulador de Ganhos</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
+            Quanto Você Pode Ganhar?
+          </h2>
+          <p class="text-slate-500 max-w-xl mx-auto">
+            Escolha seu nível, ajuste os dias e veja a projeção de ganhos em
+            tempo real.
+          </p>
+        </div>
+
+        <div class="fade-up max-w-xl mx-auto">
+          <div
+            class="bg-white rounded-3xl shadow-2xl shadow-indigo-500/15 border border-slate-100 overflow-hidden"
+          >
+            <!-- Tabs de Nível -->
+            <div class="p-4 pb-0">
+              <div class="grid grid-cols-4 gap-2" id="calc-tabs">
+                <button
+                  class="calc-tab active rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold"
+                  data-level="intern"
+                >
+                  <span class="block">Intern</span>
+                  <span class="block text-[10px] font-medium opacity-75"
+                    >Grátis</span
+                  >
+                </button>
+                <button
+                  class="calc-tab rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold"
+                  data-level="s1"
+                >
+                  <span class="block">S1</span>
+                  <span class="block text-[10px] font-medium opacity-75"
+                    >R$ 270</span
+                  >
+                </button>
+                <button
+                  class="calc-tab rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold"
+                  data-level="s2"
+                >
+                  <span class="block">S2</span>
+                  <span class="block text-[10px] font-medium opacity-75"
+                    >R$ 840</span
+                  >
+                </button>
+                <button
+                  class="calc-tab rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold"
+                  data-level="m1"
+                >
+                  <span class="block">M1</span>
+                  <span class="block text-[10px] font-medium opacity-75"
+                    >R$ 2.600</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!-- Card header dinâmico -->
+            <div
+              class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-5 flex items-center gap-3 mx-4 mt-4 rounded-2xl"
+            >
+              <div
+                class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center"
+              >
+                <i class="fa-solid fa-calculator text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg" id="calc-plan-name">
+                  Plano Intern (Estágio)
+                </h3>
+                <p class="text-indigo-200 text-sm" id="calc-plan-desc">
+                  Gratuito — Sem depósito necessário
+                </p>
+              </div>
+            </div>
+
+            <!-- Card body -->
+            <div class="p-6 space-y-4">
+              <!-- Investimento -->
+              <div
+                class="flex items-center justify-between py-3 border-b border-slate-100"
+              >
+                <span class="text-slate-500 text-sm flex items-center gap-2"
+                  ><i class="fa-solid fa-piggy-bank text-primary-400"></i>
+                  Investimento</span
+                >
+                <span class="font-bold text-lg" id="calc-investimento"
+                  ><span class="text-accent-500">R$ 0,00</span></span
+                >
+              </div>
+              <!-- Renda Diária -->
+              <div
+                class="flex items-center justify-between py-3 border-b border-slate-100"
+              >
+                <span class="text-slate-500 text-sm flex items-center gap-2"
+                  ><i class="fa-solid fa-sun text-primary-400"></i> Renda
+                  Diária</span
+                >
+                <span
+                  class="font-extrabold text-accent-600 text-lg"
+                  id="calc-renda-diaria"
+                  >R$ 8,00</span
+                >
+              </div>
+
+              <!-- Slider de Dias -->
+              <div class="pt-4 pb-2">
+                <label class="flex items-center justify-between mb-3">
+                  <span class="text-slate-500 text-sm flex items-center gap-2"
+                    ><i class="fa-solid fa-calendar-days text-primary-400"></i>
+                    Dias Úteis</span
+                  >
+                  <span
+                    class="font-extrabold text-primary-600 text-lg"
+                    id="calc-dias-label"
+                    >30 Dias Úteis</span
+                  >
+                </label>
+                <input
+                  type="range"
+                  id="calc-slider"
+                  class="calc-slider"
+                  min="1"
+                  max="60"
+                  value="30"
+                  step="1"
+                />
+                <div class="flex justify-between text-xs text-slate-400 mt-1.5">
+                  <span>1 dia</span><span>15</span><span>30</span><span>45</span
+                  ><span>60 dias</span>
+                </div>
+              </div>
+
+              <!-- Barra de Progresso Visual (Break-even) -->
+              <div class="mt-1 mb-2">
+                <div
+                  class="flex items-center gap-2 text-[10px] font-semibold text-slate-400 mb-1.5"
+                >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="w-2.5 h-2.5 rounded-sm bg-amber-400 inline-block"
+                    ></span>
+                    Recuperação</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><span
+                      class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"
+                    ></span>
+                    Lucro Líquido</span
+                  >
+                </div>
+                <div
+                  class="w-full h-3 bg-slate-100 rounded-full overflow-hidden flex"
+                  id="calc-progress-bar"
+                >
+                  <div
+                    class="h-full bg-amber-400 rounded-l-full transition-all duration-300"
+                    id="calc-progress-recovery"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="h-full bg-emerald-500 rounded-r-full transition-all duration-300"
+                    id="calc-progress-profit"
+                    style="width: 100%"
+                  ></div>
+                </div>
+                <p
+                  class="text-xs text-slate-500 mt-2 text-center"
+                  id="calc-breakeven-text"
+                >
+                  <i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i>
+                  <span id="calc-breakeven-msg"
+                    >Lucro imediato desde o 1º dia!</span
+                  >
+                </p>
+              </div>
+
+              <!-- Resultados -->
+              <div class="grid grid-cols-2 gap-3 mt-2">
+                <div
+                  class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-5 text-center border border-primary-100"
+                >
+                  <p
+                    class="text-slate-500 text-[10px] uppercase tracking-widest font-semibold mb-1"
+                  >
+                    Renda Estimada
+                  </p>
+                  <p
+                    class="text-2xl md:text-3xl font-extrabold text-primary-600"
+                    id="calc-renda-total"
+                  >
+                    R$ 240,00
+                  </p>
+                  <p class="text-slate-400 text-[10px] mt-1" id="calc-detalhe">
+                    30 dias &times; R$ 8,00
+                  </p>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-accent-50 to-emerald-50 rounded-2xl p-5 text-center border border-accent-200"
+                >
+                  <p
+                    class="text-slate-500 text-[10px] uppercase tracking-widest font-semibold mb-1"
+                  >
+                    Lucro Líquido
+                  </p>
+                  <p
+                    class="text-2xl md:text-3xl font-extrabold text-accent-600"
+                    id="calc-lucro"
+                  >
+                    R$ 240,00
+                  </p>
+                  <p
+                    class="text-slate-400 text-[10px] mt-1"
+                    id="calc-lucro-desc"
+                  >
+                    Renda - Investimento
+                  </p>
+                </div>
+              </div>
+              <p class="text-xs text-gray-400 text-center mt-3">
+                Obs: O cálculo desconsidera os domingos, pois não há tarefas
+                disponíveis neste dia.
+              </p>
+            </div>
+
+            <!-- Card footer -->
+            <div
+              class="bg-slate-50 px-6 py-4 text-center border-t border-slate-100"
+            >
+              <p class="text-sm text-slate-600">
+                Comece grátis no Intern.
+                <span class="text-primary-700 font-semibold"
+                  >Evolua de nível após o cadastro.</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- CTA abaixo -->
+          <div class="text-center mt-8">
+            <a
+              href="https://sp4567.com/rNYX63k"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-glow inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-primary-500/20 hover:shadow-primary-500/30 transition-all duration-300"
+            >
+              <i class="fa-solid fa-rocket"></i>
+              Quero Começar Agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REGRAS DE SAQUE ========== -->
+    <section id="saques" class="py-20 md:py-28 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-14 fade-up">
+          <span
+            class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            ><i class="fa-solid fa-wallet mr-1"></i> Saques</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
+            Como Funcionam os Saques?
+          </h2>
+          <p class="text-slate-500 max-w-xl mx-auto">
+            Entenda as regras de retirada do seu saldo acumulado na plataforma.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
+          <!-- Card 1: Frequência -->
+          <div
+            class="glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary-500/20"
+            >
+              <i class="fa-solid fa-calendar-week text-white text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-2">Frequência</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              O saque ocorre
+              <strong class="text-slate-700">1 vez por semana</strong>. O dia
+              disponível varia conforme o seu nível VIP na plataforma.
+            </p>
+          </div>
+
+          <!-- Card 2: Valores Permitidos -->
+          <div
+            class="glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-accent-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-accent-500/20"
+            >
+              <i class="fa-solid fa-money-bill-wave text-white text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-3">
+              Valores Permitidos
+            </h3>
+            <div class="flex flex-wrap justify-center gap-2">
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 40</span
+              >
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 130</span
+              >
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 400</span
+              >
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 1.300</span
+              >
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 4.200</span
+              >
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 8.500</span
+              >
+              <span
+                class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full"
+                >R$ 19.000</span
+              >
+              <span
+                class="bg-slate-100 text-slate-500 text-xs font-bold px-3 py-1.5 rounded-full"
+                ><i class="fa-solid fa-plus mr-1"></i>etc.</span
+              >
+            </div>
+          </div>
+
+          <!-- Card 3: Taxa -->
+          <div
+            class="glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-amber-500/20"
+            >
+              <i class="fa-solid fa-receipt text-white text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-2">
+              Taxa Governamental
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Incide
+              <strong class="text-slate-700">taxa governamental de 10%</strong>
+              sobre o valor do saque, conforme regulamentação vigente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section id="depoimentos" class="py-20 md:py-28 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-14 fade-up">
+          <span
+            class="inline-block bg-amber-100 text-amber-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            >Prova Social</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
+            O Que Nossos Avaliadores Dizem
+          </h2>
+          <p class="text-slate-500 max-w-xl mx-auto">
+            Milhares de pessoas já trabalham com a SP. Veja a experiência de
+            quem começou pelo plano Intern.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div
+            class="fade-up glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div class="flex items-center gap-1 text-amber-400 mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              "Comecei no plano Intern sem acreditar muito, mas em uma semana já
+              tinha acumulado um valor que fez diferença. As tarefas são simples
+              e faço tudo pelo celular nos horários livres."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+              >
+                AM
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Ana M.</p>
+                <p class="text-slate-400 text-xs">Avaliadora — Nível Intern</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="fade-up glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div class="flex items-center gap-1 text-amber-400 mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              "O cadastro foi rápido e já no mesmo dia recebi minhas primeiras
+              tarefas. A plataforma é muito intuitiva. Recomendo para quem busca
+              uma renda extra sem complicação."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+              >
+                CS
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Carlos S.</p>
+                <p class="text-slate-400 text-xs">Avaliador — Nível Intern</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="fade-up glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div class="flex items-center gap-1 text-amber-400 mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              "Trabalho de casa avaliando fotos de lugares incríveis. É sério,
+              organizado e o suporte responde rápido. Já estou planejando
+              evoluir para o próximo nível."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+              >
+                JR
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Juliana R.</p>
+                <p class="text-slate-400 text-xs">Avaliadora — Nível Intern</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section id="sobre" class="py-20 md:py-28 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-up">
+            <span
+              class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+              >Sobre Nós</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 leading-tight"
+            >
+              Parceria Estratégica Global
+            </h2>
+            <p class="text-slate-500 leading-relaxed mb-6">
+              A Siltanen &amp; Partners Advertising Ltd é uma empresa registrada
+              no Reino Unido, comprometida em gerar empregos e valor no Brasil
+              através da tecnologia. Nossa plataforma conecta avaliadores de
+              mídia a empresas de turismo em todo o mundo.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/20"
+                >
+                  <i class="fa-solid fa-building text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-sm">
+                    Sede Registrada
+                  </h4>
+                  <p class="text-slate-500 text-sm">
+                    Manchester, United Kingdom
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-secondary-500 to-secondary-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-secondary-500/20"
+                >
+                  <i class="fa-solid fa-certificate text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-sm">
+                    Registro Empresarial
+                  </h4>
+                  <p class="text-slate-500 text-sm">
+                    Company Nº 16476382 — Companies House, UK
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent-500/20"
+                >
+                  <i class="fa-solid fa-globe text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-sm">Atuação</h4>
+                  <p class="text-slate-500 text-sm">
+                    Presença em mais de 30 países
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-up flex flex-col items-center gap-8">
+            <div
+              class="glass rounded-3xl p-8 md:p-10 text-center max-w-sm w-full border border-white/60 shadow-xl shadow-primary-500/10"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-primary-600 to-secondary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-primary-500/25"
+              >
+                <i class="fa-solid fa-handshake-angle"></i>
+              </div>
+              <h3
+                class="text-3xl md:text-4xl font-extrabold text-primary-700 mb-1"
+              >
+                2024
+              </h3>
+              <p class="text-slate-500 text-sm mb-5">Ano de fundação</p>
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="bg-white rounded-xl p-4 shadow-sm border border-slate-100"
+                >
+                  <p class="text-2xl font-extrabold text-primary-600">30+</p>
+                  <p class="text-xs text-slate-500 mt-1">Países</p>
+                </div>
+                <div
+                  class="bg-white rounded-xl p-4 shadow-sm border border-slate-100"
+                >
+                  <p class="text-2xl font-extrabold text-primary-600">24/7</p>
+                  <p class="text-xs text-slate-500 mt-1">Suporte</p>
+                </div>
+              </div>
+            </div>
+            <div class="max-w-sm w-full">
+              <img
+                src="assets/license.jpg"
+                alt="Certificado de Registro - Companies House UK"
+                class="w-full h-auto rounded-2xl shadow-xl border border-white/50"
+                loading="lazy"
+              />
+              <p
+                class="text-center text-xs text-slate-400 mt-2 flex items-center justify-center gap-1"
+              >
+                <i class="fa-solid fa-shield-halved text-primary-500"></i>
+                Documento Oficial — Companies House, UK
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" class="py-20 md:py-28 bg-white">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="text-center mb-14 fade-up">
+          <span
+            class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            >FAQ</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
+            Perguntas Frequentes
+          </h2>
+          <p class="text-slate-500">Tire suas dúvidas antes de começar.</p>
+        </div>
+
+        <div class="space-y-3 fade-up">
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-slate-900 pr-4"
+                >Preciso pagar para começar?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Não. O nível Intern (Estágio) é 100% gratuito. Você não precisa
+                fazer nenhum depósito para começar a realizar tarefas e acumular
+                recompensas.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-slate-900 pr-4"
+                >Como recebo meus ganhos?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Os valores são creditados na sua carteira digital da plataforma.
+                A partir daí, você pode solicitar o saque de acordo com as
+                regras do seu plano atual.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-slate-900 pr-4"
+                >Preciso de experiência prévia?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Não, o sistema é intuitivo e guiado. Qualquer pessoa com acesso
+                à internet e um celular ou computador pode realizar as tarefas
+                sem dificuldade.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-slate-900 pr-4"
+                >Quantas tarefas posso fazer por dia?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                No plano Intern (Estágio), você recebe 4 tarefas diárias. Planos
+                superiores oferecem mais tarefas e valores por avaliação.
+                Confira as opções após o cadastro.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item glass rounded-2xl border border-white/60 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          >
+            <button
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-slate-900 pr-4"
+                >A empresa é confiável?</span
+              >
+              <i
+                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+              ></i>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="text-slate-500 text-sm leading-relaxed pb-5">
+                Sim. A Siltanen &amp; Partners Advertising Ltd é registrada no
+                Reino Unido sob o número 16476382 na Companies House, órgão
+                oficial do governo britânico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA FINAL ========== -->
+    <section class="hero-mesh py-20 md:py-24 text-white">
+      <div
+        class="absolute top-10 left-20 w-64 h-64 bg-secondary-400/20 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-10 right-20 w-80 h-80 bg-primary-400/15 rounded-full blur-3xl"
+      ></div>
+      <div class="relative max-w-3xl mx-auto px-4 text-center fade-up">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gradient">
+          Pronto para Começar?
+        </h2>
+        <p class="text-indigo-200 mb-10 max-w-lg mx-auto text-lg">
+          Cadastre-se gratuitamente no plano Intern e comece a avaliar atrações
+          turísticas hoje mesmo.
+        </p>
+        <a
+          href="https://sp4567.com/rNYX63k"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-glow inline-flex items-center gap-3 bg-white text-primary-700 hover:bg-primary-50 font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl hover:shadow-white/20 transition-all duration-300"
+        >
+          <i class="fa-solid fa-rocket"></i>
+          Cadastro Gratuito
+        </a>
+        <p class="text-indigo-300 text-xs mt-5">
+          Sem cartão de crédito. Sem compromisso.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-slate-900 text-slate-400 py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+          <div class="flex items-center gap-2 text-white font-bold text-lg">
+            <img src="Logo-SP.png" alt="Logo SP" class="h-6 w-auto" />
+            <span>Siltanen &amp; Partners</span>
+          </div>
+          <nav class="flex flex-wrap items-center justify-center gap-6 text-sm">
+            <a
+              href="politica.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+              >Política de Privacidade</a
+            >
+            <a
+              href="termos.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+              >Termos de Uso</a
+            >
+            <a
+              href="aviso.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+              >Aviso Legal</a
+            >
+          </nav>
+        </div>
+        <hr class="border-slate-800 my-6" />
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500"
+        >
+          <p>
+            &copy; 2026 Siltanen &amp; Partners Advertising Ltd. Todos os
+            direitos reservados.
+          </p>
+          <p>Registered in England &amp; Wales — Company Nº 16476382</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== WHATSAPP FLUTUANTE ========== -->
+    <a
+      href="https://wa.me/551931997599"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Fale conosco pelo WhatsApp"
+      class="whatsapp-float fixed bottom-6 right-6 z-[60] w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 transition-all duration-200"
+    >
+      <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+      // --- Header shadow on scroll ---
+      const header = document.getElementById('header')
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('header-scrolled', window.scrollY > 10)
+      })
+
+      // --- FAQ Accordion ---
+      document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.closest('.faq-item')
+          const answer = item.querySelector('.faq-answer')
+          const icon = button.querySelector('i')
+          const isOpen = answer.classList.contains('open')
+          document
+            .querySelectorAll('.faq-answer')
+            .forEach(a => a.classList.remove('open'))
+          document
+            .querySelectorAll('.faq-toggle i')
+            .forEach(i => (i.style.transform = 'rotate(0deg)'))
+          document
+            .querySelectorAll('.faq-toggle')
+            .forEach(b => b.setAttribute('aria-expanded', 'false'))
+          if (!isOpen) {
+            answer.classList.add('open')
+            icon.style.transform = 'rotate(180deg)'
+            button.setAttribute('aria-expanded', 'true')
+          }
+        })
+      })
+
+      // --- Fade-in on scroll ---
+      const fadeEls = document.querySelectorAll('.fade-up')
+      const obs = new IntersectionObserver(
+        entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible')
+              obs.unobserve(e.target)
+            }
+          })
+        },
+        { threshold: 0.15 }
+      )
+      fadeEls.forEach(el => obs.observe(el))
+
+      // --- Calculadora Multi-Nível com Break-even ---
+      ;(function initCalc() {
+        const LEVELS = {
+          intern: {
+            name: 'Plano Intern (Estágio)',
+            desc: 'Gratuito — Sem depósito necessário',
+            investimento: 0,
+            rendaDiaria: 8,
+            breakeven: 1
+          },
+          s1: {
+            name: 'Plano S1 (Iniciante)',
+            desc: 'Remuneração por produtividade',
+            investimento: 270,
+            rendaDiaria: 9,
+            breakeven: 30
+          },
+          s2: {
+            name: 'Plano S2 (Intermediário)',
+            desc: 'Remuneração por produtividade',
+            investimento: 840,
+            rendaDiaria: 28,
+            breakeven: 30
+          },
+          m1: {
+            name: 'Plano M1 (Profissional)',
+            desc: 'Remuneração por produtividade',
+            investimento: 2600,
+            rendaDiaria: 90,
+            breakeven: 29
+          }
+        }
+
+        let currentLevel = 'intern'
+        const slider = document.getElementById('calc-slider')
+        const diasLabel = document.getElementById('calc-dias-label')
+        const rendaTotal = document.getElementById('calc-renda-total')
+        const detalhe = document.getElementById('calc-detalhe')
+        const lucroEl = document.getElementById('calc-lucro')
+        const lucroDesc = document.getElementById('calc-lucro-desc')
+        const investEl = document.getElementById('calc-investimento')
+        const rendaDiariaEl = document.getElementById('calc-renda-diaria')
+        const planName = document.getElementById('calc-plan-name')
+        const planDesc = document.getElementById('calc-plan-desc')
+        const progressRecovery = document.getElementById(
+          'calc-progress-recovery'
+        )
+        const progressProfit = document.getElementById('calc-progress-profit')
+        const breakevenMsg = document.getElementById('calc-breakeven-msg')
+        const breakevenIcon = document.querySelector('#calc-breakeven-text i')
+
+        function formatBRL(v) {
+          return (
+            'R$ ' +
+            v
+              .toFixed(2)
+              .replace('.', ',')
+              .replace(/\B(?=(?:\d{3})+(?!\d))/g, '.')
+          )
+        }
+
+        function updateSliderBg() {
+          const pct =
+            ((slider.value - slider.min) / (slider.max - slider.min)) * 100
+          slider.style.background =
+            'linear-gradient(to right, #4f46e5 ' +
+            pct +
+            '%, #e2e8f0 ' +
+            pct +
+            '%)'
+        }
+
+        function update() {
+          const level = LEVELS[currentLevel]
+          const dias = parseInt(slider.value)
+          const renda = dias * level.rendaDiaria
+          const lucro = Math.max(0, renda - level.investimento)
+          const be = level.breakeven
+          const maxDias = parseInt(slider.max)
+
+          // Header
+          planName.textContent = level.name
+          planDesc.textContent = level.desc
+
+          // Investimento display
+          if (level.investimento === 0) {
+            investEl.innerHTML =
+              '<span class="text-accent-500 font-extrabold">R$ 0,00</span> <span class="text-accent-500 text-xs ml-1">GRÁTIS</span>'
+          } else {
+            investEl.innerHTML =
+              '<span class="text-slate-900">' +
+              formatBRL(level.investimento) +
+              '</span>'
+          }
+
+          // Values
+          rendaDiariaEl.textContent = formatBRL(level.rendaDiaria)
+          diasLabel.textContent =
+            dias + (dias === 1 ? ' Dia Útil' : ' Dias Úteis')
+          rendaTotal.textContent = formatBRL(renda)
+          detalhe.textContent =
+            dias +
+            (dias === 1 ? ' Dia Útil' : ' Dias Úteis') +
+            ' \u00d7 ' +
+            formatBRL(level.rendaDiaria)
+          lucroEl.textContent = formatBRL(lucro)
+
+          if (lucro > 0) {
+            lucroEl.className =
+              'text-2xl md:text-3xl font-extrabold text-accent-600'
+            lucroDesc.textContent = 'Renda - Saldo Inicial'
+          } else {
+            lucroEl.className =
+              'text-2xl md:text-3xl font-extrabold text-slate-400'
+            lucroDesc.textContent = 'Continue para ver o lucro'
+          }
+
+          // Progress bar
+          if (level.investimento === 0) {
+            progressRecovery.style.width = '0%'
+            progressProfit.style.width = '100%'
+            breakevenMsg.textContent = 'Lucro imediato desde o 1\u00ba dia!'
+            breakevenIcon.className =
+              'fa-solid fa-circle-check text-emerald-500 mr-1'
+          } else {
+            const recoveryPct = Math.min((be / maxDias) * 100, 100)
+            const currentPct = (dias / maxDias) * 100
+            if (dias < be) {
+              progressRecovery.style.width = currentPct + '%'
+              progressProfit.style.width = '0%'
+              breakevenMsg.textContent =
+                'Faltam ' +
+                (be - dias) +
+                ' dias para o ponto de equil\u00edbrio.'
+              breakevenIcon.className = 'fa-solid fa-clock text-amber-500 mr-1'
+            } else {
+              progressRecovery.style.width = recoveryPct + '%'
+              progressProfit.style.width = currentPct - recoveryPct + '%'
+              breakevenMsg.textContent =
+                'Ap\u00f3s ' +
+                be +
+                ' dias, todo valor gerado \u00e9 100% Lucro L\u00edquido.'
+              breakevenIcon.className =
+                'fa-solid fa-circle-check text-emerald-500 mr-1'
+            }
+          }
+
+          updateSliderBg()
+        }
+
+        // Tab clicks — auto-move slider to break-even
+        document.querySelectorAll('#calc-tabs .calc-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            document
+              .querySelectorAll('#calc-tabs .calc-tab')
+              .forEach(t => t.classList.remove('active'))
+            tab.classList.add('active')
+            currentLevel = tab.dataset.level
+            slider.value = LEVELS[currentLevel].breakeven
+            update()
+          })
+        })
+
+        slider.addEventListener('input', update)
+        update()
+      })()
+
+      // --- Smooth scroll for anchor links ---
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute('href'))
+          if (target) {
+            const headerHeight = header.offsetHeight
+            const targetPosition =
+              target.getBoundingClientRect().top + window.scrollY - headerHeight
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
