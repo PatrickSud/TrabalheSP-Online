@@ -88,12 +88,6 @@
         scroll-behavior: smooth;
       }
 
-      /* Tooltip image preview */
-      .tooltip-wrap:hover .tooltip-img,
-      .tooltip-wrap.active .tooltip-img {
-        display: block !important;
-      }
-
       /* Glow CTA pulse */
       @keyframes glow-pulse {
         0% {
@@ -1968,23 +1962,28 @@
                     <strong class="text-brand-600"
                       >tire um print da guia "Minha área"</strong
                     >
-                    <span
-                      class="tooltip-wrap relative inline-block align-middle ml-1 cursor-help"
-                      onclick="this.classList.toggle('active')"
-                    >
-                      <i
-                        class="fa-solid fa-circle-question text-brand-400 text-sm"
-                      ></i>
-                      <span
-                        class="tooltip-img absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 hidden"
-                      >
-                        <img
-                          src="minha-area.png"
-                          alt="Exemplo: guia Minha área"
-                          class="w-64 sm:w-80 rounded-xl shadow-2xl border-2 border-white"
-                        />
-                      </span> </span
-                    >.
+                    (<a
+                      href="#"
+                      onclick="
+                        event.preventDefault()
+                        document
+                          .getElementById('modal-exemplo')
+                          .classList.remove('hidden')
+                        setTimeout(() => {
+                          document
+                            .getElementById('modal-exemplo-backdrop')
+                            .classList.remove('opacity-0')
+                          document
+                            .getElementById('modal-exemplo-panel')
+                            .classList.remove('opacity-0', 'scale-95')
+                          document
+                            .getElementById('modal-exemplo-panel')
+                            .classList.add('opacity-100', 'scale-100')
+                        }, 10)
+                      "
+                      class="text-brand-600 font-semibold underline underline-offset-2 hover:text-brand-700"
+                      >Ver exemplo</a
+                    >).
                   </li>
                   <li>
                     Por favor, envie esta captura de tela para o nosso
@@ -2077,6 +2076,55 @@
           }
         })
       })
+    </script>
+
+    <!-- ========== MODAL EXEMPLO MINHA ÁREA ========== -->
+    <div
+      id="modal-exemplo"
+      class="fixed inset-0 z-[110] hidden"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        id="modal-exemplo-backdrop"
+        class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0"
+        onclick="fecharExemplo()"
+      ></div>
+      <div class="fixed inset-0 z-10 flex items-center justify-center p-4">
+        <div
+          id="modal-exemplo-panel"
+          class="relative transform transition-all opacity-0 scale-95 max-w-sm w-full"
+        >
+          <button
+            onclick="fecharExemplo()"
+            class="absolute -top-3 -right-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-lg hover:bg-slate-100 transition-colors"
+          >
+            <i class="fa-solid fa-xmark text-slate-600"></i>
+          </button>
+          <img
+            src="minha-area.png"
+            alt="Exemplo: guia Minha área"
+            class="w-full rounded-2xl shadow-2xl border-2 border-white"
+          />
+          <p class="text-center text-white text-xs mt-3 font-medium">
+            Exemplo da guia "Minha área"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function fecharExemplo() {
+        const m = document.getElementById('modal-exemplo')
+        const b = document.getElementById('modal-exemplo-backdrop')
+        const p = document.getElementById('modal-exemplo-panel')
+        b.classList.add('opacity-0')
+        p.classList.remove('opacity-100', 'scale-100')
+        p.classList.add('opacity-0', 'scale-95')
+        setTimeout(() => {
+          m.classList.add('hidden')
+        }, 200)
+      }
     </script>
   </body>
 </html>
