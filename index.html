@@ -1923,16 +1923,23 @@
             <div class="bg-blue-600 px-4 py-3 sm:px-6 border-b border-blue-700">
               <div class="flex items-center gap-3">
                 <div
-                  class="mx-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-500 sm:mx-0"
+                  class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-500"
                 >
                   <i class="fa-solid fa-circle-info text-white text-lg"></i>
                 </div>
                 <h3
-                  class="text-base font-bold leading-6 text-white"
+                  class="text-base font-bold leading-6 text-white flex-1"
                   id="modal-title"
                 >
                   Etapa de Orientação
                 </h3>
+                <button
+                  onclick="fecharModal()"
+                  class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-blue-500 transition-colors"
+                  aria-label="Fechar"
+                >
+                  <i class="fa-solid fa-xmark text-white text-lg"></i>
+                </button>
               </div>
             </div>
 
@@ -2015,6 +2022,24 @@
           panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100')
         }, 10)
       }
+
+      // Função para fechar o modal com animação
+      function fecharModal() {
+        backdrop.classList.add('opacity-0')
+        panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100')
+        panel.classList.add(
+          'opacity-0',
+          'translate-y-4',
+          'sm:translate-y-0',
+          'sm:scale-95'
+        )
+        setTimeout(() => {
+          modal.classList.add('hidden')
+        }, 200)
+      }
+
+      // Fechar ao clicar no backdrop
+      backdrop.addEventListener('click', fecharModal)
 
       // APLICAR A TODOS OS LINKS DE CADASTRO (Exceto o do próprio modal)
       document.addEventListener('DOMContentLoaded', () => {
