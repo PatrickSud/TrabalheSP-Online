@@ -37,29 +37,17 @@
           extend: {
             fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
             colors: {
-              primary: {
-                50: '#eef2ff',
-                100: '#e0e7ff',
-                200: '#c7d2fe',
-                300: '#a5b4fc',
-                400: '#818cf8',
-                500: '#6366f1',
-                600: '#4f46e5',
-                700: '#4338ca',
-                800: '#3730a3',
-                900: '#312e81'
-              },
-              secondary: {
-                50: '#f5f3ff',
-                100: '#ede9fe',
-                200: '#ddd6fe',
-                300: '#c4b5fd',
-                400: '#a78bfa',
-                500: '#8b5cf6',
-                600: '#7c3aed',
-                700: '#6d28d9',
-                800: '#5b21b6',
-                900: '#4c1d95'
+              brand: {
+                50: '#f0f5ff',
+                100: '#dde9ff',
+                200: '#bfdbfe',
+                300: '#93c5fd',
+                400: '#50a8f9',
+                500: '#325de9',
+                600: '#294ddb',
+                700: '#243b94',
+                800: '#1e3a8a',
+                900: '#1e3a8a'
               },
               accent: {
                 50: '#ecfdf5',
@@ -93,20 +81,20 @@
       /* Glow CTA pulse */
       @keyframes glow-pulse {
         0% {
-          box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.5);
+          box-shadow: 0 0 0 0 rgba(50, 93, 233, 0.5);
         }
         70% {
-          box-shadow: 0 0 0 14px rgba(79, 70, 229, 0);
+          box-shadow: 0 0 0 14px rgba(50, 93, 233, 0);
         }
         100% {
-          box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+          box-shadow: 0 0 0 0 rgba(50, 93, 233, 0);
         }
       }
       .btn-glow {
         animation: glow-pulse 2.2s ease-out infinite;
       }
       .btn-glow:hover {
-        box-shadow: 0 0 30px rgba(79, 70, 229, 0.4);
+        box-shadow: 0 0 30px rgba(50, 93, 233, 0.4);
       }
 
       /* Fade-in on scroll */
@@ -158,9 +146,9 @@
       .urgency-bar {
         background: linear-gradient(
           90deg,
-          #4f46e5 0%,
-          #7c3aed 50%,
-          #4f46e5 100%
+          #325de9 0%,
+          #294ddb 50%,
+          #325de9 100%
         );
         background-size: 200% 100%;
         animation: urgency-shift 3s ease infinite;
@@ -181,11 +169,11 @@
       .hero-mesh {
         background: linear-gradient(
           135deg,
-          #312e81 0%,
-          #4338ca 25%,
-          #6d28d9 50%,
-          #4f46e5 75%,
-          #312e81 100%
+          #1e3a8a 0%,
+          #243b94 25%,
+          #294ddb 50%,
+          #325de9 75%,
+          #1e3a8a 100%
         );
         position: relative;
         overflow: hidden;
@@ -200,17 +188,17 @@
         background:
           radial-gradient(
             circle at 20% 50%,
-            rgba(139, 92, 246, 0.3) 0%,
+            rgba(50, 168, 249, 0.3) 0%,
             transparent 50%
           ),
           radial-gradient(
             circle at 80% 20%,
-            rgba(99, 102, 241, 0.25) 0%,
+            rgba(50, 93, 233, 0.25) 0%,
             transparent 50%
           ),
           radial-gradient(
             circle at 50% 80%,
-            rgba(124, 58, 237, 0.2) 0%,
+            rgba(41, 77, 219, 0.2) 0%,
             transparent 50%
           );
         animation: mesh-move 8s ease-in-out infinite alternate;
@@ -247,9 +235,9 @@
         width: 26px;
         height: 26px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background: linear-gradient(135deg, #325de9, #294ddb);
         border: 3px solid #fff;
-        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+        box-shadow: 0 2px 8px rgba(50, 93, 233, 0.35);
         cursor: pointer;
         transition: transform 0.15s ease;
       }
@@ -260,15 +248,15 @@
         width: 26px;
         height: 26px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background: linear-gradient(135deg, #325de9, #294ddb);
         border: 3px solid #fff;
-        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+        box-shadow: 0 2px 8px rgba(50, 93, 233, 0.35);
         cursor: pointer;
       }
 
       /* Gradient text */
       .text-gradient {
-        background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #a78bfa 100%);
+        background: linear-gradient(135deg, #fff 0%, #93c5fd 50%, #50a8f9 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -279,9 +267,9 @@
         transition: all 0.2s ease;
       }
       .calc-tab.active {
-        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background: linear-gradient(135deg, #325de9, #294ddb);
         color: #fff;
-        box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        box-shadow: 0 4px 15px rgba(50, 93, 233, 0.3);
       }
       .calc-tab:not(.active) {
         background: #f1f5f9;
@@ -331,7 +319,7 @@
       >
         <a
           href="#"
-          class="flex items-center gap-2.5 text-primary-700 font-extrabold text-xl md:text-2xl tracking-tight"
+          class="flex items-center gap-2.5 text-brand-700 font-extrabold text-xl md:text-2xl tracking-tight"
         >
           <img src="Logo-SP.png" alt="Logo SP" class="h-8 md:h-9 w-auto" />
           <span class="hidden sm:inline">Siltanen &amp; Partners</span>
@@ -340,7 +328,7 @@
           href="https://sp4567.com/rNYX63k"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white text-sm md:text-base font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/30"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white text-sm md:text-base font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30"
         >
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
           Acesso ao Sistema
@@ -354,13 +342,13 @@
       class="hero-mesh text-white pt-36 pb-20 md:pt-44 md:pb-28"
     >
       <div
-        class="absolute top-20 left-10 w-72 h-72 bg-secondary-400/20 rounded-full blur-3xl"
+        class="absolute top-20 left-10 w-72 h-72 bg-brand-400/20 rounded-full blur-3xl"
       ></div>
       <div
-        class="absolute bottom-10 right-10 w-96 h-96 bg-primary-400/15 rounded-full blur-3xl"
+        class="absolute bottom-10 right-10 w-96 h-96 bg-brand-400/15 rounded-full blur-3xl"
       ></div>
       <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-500/10 rounded-full blur-3xl"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-3xl"
       ></div>
 
       <div class="relative max-w-4xl mx-auto px-4 text-center">
@@ -377,7 +365,7 @@
           Trabalhe pelo Celular<br />Avaliando Atrações Turísticas
         </h1>
         <p
-          class="text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto mb-10 leading-relaxed"
+          class="text-lg md:text-xl text-brand-200 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Participe da equipe Siltanen &amp; Partners. Comece hoje no plano de
           estágio sem taxas. Avalie mídias e receba por tarefa concluída.
@@ -387,17 +375,17 @@
           href="https://sp4567.com/rNYX63k"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-glow inline-flex items-center gap-3 bg-white text-primary-700 hover:bg-primary-50 font-bold text-lg md:text-xl px-10 py-4 rounded-2xl shadow-2xl hover:shadow-primary-500/25 transition-all duration-300 mb-4"
+          class="btn-glow inline-flex items-center gap-3 bg-white text-brand-700 hover:bg-brand-50 font-bold text-lg md:text-xl px-10 py-4 rounded-2xl shadow-2xl hover:shadow-brand-500/25 transition-all duration-300 mb-4"
         >
           <i class="fa-solid fa-rocket"></i>
           Começar Agora — Cadastro Grátis
         </a>
-        <p class="text-indigo-200/80 text-sm">
+        <p class="text-brand-200/80 text-sm">
           &#128274; Cadastro seguro e verificado
         </p>
 
         <div
-          class="flex flex-wrap items-center justify-center gap-6 mt-8 text-indigo-300 text-sm"
+          class="flex flex-wrap items-center justify-center gap-6 mt-8 text-brand-300 text-sm"
         >
           <span class="flex items-center gap-1.5"
             ><i class="fa-solid fa-shield-halved"></i> Registro UK</span
@@ -417,7 +405,7 @@
       <div class="max-w-6xl mx-auto px-4">
         <div class="text-center mb-14 fade-up">
           <span
-            class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
             >Como Funciona</span
           >
           <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
@@ -430,15 +418,15 @@
 
         <div class="grid md:grid-cols-3 gap-6 md:gap-8">
           <div
-            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group"
+            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-brand-500/5 hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group"
           >
             <div
-              class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-primary-500/25 group-hover:scale-110 transition-transform duration-300"
+              class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-brand-500/25 group-hover:scale-110 transition-transform duration-300"
             >
               <i class="fa-solid fa-user-plus"></i>
             </div>
             <span
-              class="inline-block bg-primary-50 text-primary-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
+              class="inline-block bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
               >PASSO 1</span
             >
             <h3 class="text-lg font-bold text-slate-900 mb-2">
@@ -451,15 +439,15 @@
           </div>
 
           <div
-            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group"
+            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-brand-500/5 hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group"
           >
             <div
-              class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-primary-500/25 group-hover:scale-110 transition-transform duration-300"
+              class="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-brand-500/25 group-hover:scale-110 transition-transform duration-300"
             >
               <i class="fa-solid fa-clipboard-check"></i>
             </div>
             <span
-              class="inline-block bg-primary-50 text-primary-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
+              class="inline-block bg-brand-50 text-brand-600 text-xs font-bold px-3 py-1 rounded-full mb-3"
               >PASSO 2</span
             >
             <h3 class="text-lg font-bold text-slate-900 mb-2">
@@ -472,7 +460,7 @@
           </div>
 
           <div
-            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 group"
+            class="fade-up glass rounded-2xl p-8 text-center border border-white/60 shadow-lg shadow-brand-500/5 hover:shadow-xl hover:shadow-brand-500/10 transition-all duration-300 group"
           >
             <div
               class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-accent-500/25 group-hover:scale-110 transition-transform duration-300"
@@ -501,7 +489,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="fade-up order-2 md:order-1">
             <span
-              class="inline-block bg-secondary-100 text-secondary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+              class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
               >Conheça a Tarefa</span
             >
             <h2
@@ -533,7 +521,7 @@
           <div class="fade-up order-1 md:order-2 flex justify-center">
             <div class="relative w-full max-w-sm">
               <div
-                class="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-3xl blur-2xl"
+                class="absolute -inset-4 bg-gradient-to-r from-brand-500/20 to-brand-500/20 rounded-3xl blur-2xl"
               ></div>
               <img
                 src="assets/app-task.jpg"
@@ -542,7 +530,7 @@
                 loading="lazy"
               />
               <div
-                class="absolute -bottom-3 -right-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg"
+                class="absolute -bottom-3 -right-3 bg-gradient-to-r from-brand-600 to-brand-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg"
               >
                 <i class="fa-solid fa-mobile-screen-button mr-1"></i> App SP
               </div>
@@ -571,7 +559,7 @@
 
         <div class="fade-up max-w-xl mx-auto">
           <div
-            class="bg-white rounded-3xl shadow-2xl shadow-indigo-500/15 border border-slate-100 overflow-hidden"
+            class="bg-white rounded-3xl shadow-2xl shadow-brand-500/15 border border-slate-100 overflow-hidden"
           >
             <!-- Tabs de Nível -->
             <div class="p-4 pb-0">
@@ -617,7 +605,7 @@
 
             <!-- Card header dinâmico -->
             <div
-              class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-5 flex items-center gap-3 mx-4 mt-4 rounded-2xl"
+              class="bg-gradient-to-r from-brand-600 to-brand-600 text-white px-6 py-5 flex items-center gap-3 mx-4 mt-4 rounded-2xl"
             >
               <div
                 class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center"
@@ -628,7 +616,7 @@
                 <h3 class="font-bold text-lg" id="calc-plan-name">
                   Plano Intern (Estágio)
                 </h3>
-                <p class="text-indigo-200 text-sm" id="calc-plan-desc">
+                <p class="text-brand-200 text-sm" id="calc-plan-desc">
                   Gratuito — Sem depósito necessário
                 </p>
               </div>
@@ -641,7 +629,7 @@
                 class="flex items-center justify-between py-3 border-b border-slate-100"
               >
                 <span class="text-slate-500 text-sm flex items-center gap-2"
-                  ><i class="fa-solid fa-piggy-bank text-primary-400"></i>
+                  ><i class="fa-solid fa-piggy-bank text-brand-400"></i>
                   Investimento</span
                 >
                 <span class="font-bold text-lg" id="calc-investimento"
@@ -653,7 +641,7 @@
                 class="flex items-center justify-between py-3 border-b border-slate-100"
               >
                 <span class="text-slate-500 text-sm flex items-center gap-2"
-                  ><i class="fa-solid fa-sun text-primary-400"></i> Renda
+                  ><i class="fa-solid fa-sun text-brand-400"></i> Renda
                   Diária</span
                 >
                 <span
@@ -667,11 +655,11 @@
               <div class="pt-4 pb-2">
                 <label class="flex items-center justify-between mb-3">
                   <span class="text-slate-500 text-sm flex items-center gap-2"
-                    ><i class="fa-solid fa-calendar-days text-primary-400"></i>
+                    ><i class="fa-solid fa-calendar-days text-brand-400"></i>
                     Dias Úteis</span
                   >
                   <span
-                    class="font-extrabold text-primary-600 text-lg"
+                    class="font-extrabold text-brand-600 text-lg"
                     id="calc-dias-label"
                     >30 Dias Úteis</span
                   >
@@ -738,7 +726,7 @@
               <!-- Resultados -->
               <div class="grid grid-cols-2 gap-3 mt-2">
                 <div
-                  class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-5 text-center border border-primary-100"
+                  class="bg-gradient-to-br from-brand-50 to-brand-50 rounded-2xl p-5 text-center border border-brand-100"
                 >
                   <p
                     class="text-slate-500 text-[10px] uppercase tracking-widest font-semibold mb-1"
@@ -746,7 +734,7 @@
                     Renda Estimada
                   </p>
                   <p
-                    class="text-2xl md:text-3xl font-extrabold text-primary-600"
+                    class="text-2xl md:text-3xl font-extrabold text-brand-600"
                     id="calc-renda-total"
                   >
                     R$ 240,00
@@ -789,7 +777,7 @@
             >
               <p class="text-sm text-slate-600">
                 Comece grátis no Intern.
-                <span class="text-primary-700 font-semibold"
+                <span class="text-brand-700 font-semibold"
                   >Evolua de nível após o cadastro.</span
                 >
               </p>
@@ -802,7 +790,7 @@
               href="https://sp4567.com/rNYX63k"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-glow inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-primary-500/20 hover:shadow-primary-500/30 transition-all duration-300"
+              class="btn-glow inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-brand-500/20 hover:shadow-brand-500/30 transition-all duration-300"
             >
               <i class="fa-solid fa-rocket"></i>
               Quero Começar Agora
@@ -834,7 +822,7 @@
             class="glass rounded-2xl p-7 border border-white/60 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
           >
             <div
-              class="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary-500/20"
+              class="w-14 h-14 bg-gradient-to-br from-brand-500 to-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand-500/20"
             >
               <i class="fa-solid fa-calendar-week text-white text-xl"></i>
             </div>
@@ -842,7 +830,7 @@
             <p class="text-slate-500 text-sm leading-relaxed">
               O saque ocorre
               <strong class="text-slate-700">1 vez por semana</strong>. O dia
-              disponível varia conforme o seu nível VIP na plataforma.
+              disponível varia conforme o seu nível na plataforma.
             </p>
           </div>
 
@@ -949,7 +937,7 @@
             </p>
             <div class="flex items-center gap-3">
               <div
-                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
               >
                 AM
               </div>
@@ -975,7 +963,7 @@
             </p>
             <div class="flex items-center gap-3">
               <div
-                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
               >
                 CS
               </div>
@@ -1001,7 +989,7 @@
             </p>
             <div class="flex items-center gap-3">
               <div
-                class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
               >
                 JR
               </div>
@@ -1021,7 +1009,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="fade-up">
             <span
-              class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+              class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
               >Sobre Nós</span
             >
             <h2
@@ -1038,7 +1026,7 @@
             <div class="space-y-4">
               <div class="flex items-start gap-3">
                 <div
-                  class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-500/20"
+                  class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand-500/20"
                 >
                   <i class="fa-solid fa-building text-sm"></i>
                 </div>
@@ -1053,7 +1041,7 @@
               </div>
               <div class="flex items-start gap-3">
                 <div
-                  class="w-10 h-10 bg-gradient-to-br from-secondary-500 to-secondary-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-secondary-500/20"
+                  class="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand-500/20"
                 >
                   <i class="fa-solid fa-certificate text-sm"></i>
                 </div>
@@ -1084,15 +1072,15 @@
 
           <div class="fade-up flex flex-col items-center gap-8">
             <div
-              class="glass rounded-3xl p-8 md:p-10 text-center max-w-sm w-full border border-white/60 shadow-xl shadow-primary-500/10"
+              class="glass rounded-3xl p-8 md:p-10 text-center max-w-sm w-full border border-white/60 shadow-xl shadow-brand-500/10"
             >
               <div
-                class="w-16 h-16 bg-gradient-to-br from-primary-600 to-secondary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-primary-500/25"
+                class="w-16 h-16 bg-gradient-to-br from-brand-600 to-brand-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg shadow-brand-500/25"
               >
                 <i class="fa-solid fa-handshake-angle"></i>
               </div>
               <h3
-                class="text-3xl md:text-4xl font-extrabold text-primary-700 mb-1"
+                class="text-3xl md:text-4xl font-extrabold text-brand-700 mb-1"
               >
                 2024
               </h3>
@@ -1101,13 +1089,13 @@
                 <div
                   class="bg-white rounded-xl p-4 shadow-sm border border-slate-100"
                 >
-                  <p class="text-2xl font-extrabold text-primary-600">30+</p>
+                  <p class="text-2xl font-extrabold text-brand-600">30+</p>
                   <p class="text-xs text-slate-500 mt-1">Países</p>
                 </div>
                 <div
                   class="bg-white rounded-xl p-4 shadow-sm border border-slate-100"
                 >
-                  <p class="text-2xl font-extrabold text-primary-600">24/7</p>
+                  <p class="text-2xl font-extrabold text-brand-600">24/7</p>
                   <p class="text-xs text-slate-500 mt-1">Suporte</p>
                 </div>
               </div>
@@ -1122,7 +1110,7 @@
               <p
                 class="text-center text-xs text-slate-400 mt-2 flex items-center justify-center gap-1"
               >
-                <i class="fa-solid fa-shield-halved text-primary-500"></i>
+                <i class="fa-solid fa-shield-halved text-brand-500"></i>
                 Documento Oficial — Companies House, UK
               </p>
             </div>
@@ -1136,7 +1124,7 @@
       <div class="max-w-3xl mx-auto px-4">
         <div class="text-center mb-14 fade-up">
           <span
-            class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
+            class="inline-block bg-brand-100 text-brand-700 text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider"
             >FAQ</span
           >
           <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
@@ -1157,7 +1145,7 @@
                 >Preciso pagar para começar?</span
               >
               <i
-                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
               ></i>
             </button>
             <div class="faq-answer px-6">
@@ -1179,7 +1167,7 @@
                 >Como recebo meus ganhos?</span
               >
               <i
-                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
               ></i>
             </button>
             <div class="faq-answer px-6">
@@ -1201,7 +1189,7 @@
                 >Preciso de experiência prévia?</span
               >
               <i
-                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
               ></i>
             </button>
             <div class="faq-answer px-6">
@@ -1223,7 +1211,7 @@
                 >Quantas tarefas posso fazer por dia?</span
               >
               <i
-                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
               ></i>
             </button>
             <div class="faq-answer px-6">
@@ -1245,7 +1233,7 @@
                 >A empresa é confiável?</span
               >
               <i
-                class="fa-solid fa-chevron-down text-primary-500 transition-transform duration-300 flex-shrink-0"
+                class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
               ></i>
             </button>
             <div class="faq-answer px-6">
@@ -1263,16 +1251,16 @@
     <!-- ========== CTA FINAL ========== -->
     <section class="hero-mesh py-20 md:py-24 text-white">
       <div
-        class="absolute top-10 left-20 w-64 h-64 bg-secondary-400/20 rounded-full blur-3xl"
+        class="absolute top-10 left-20 w-64 h-64 bg-brand-400/20 rounded-full blur-3xl"
       ></div>
       <div
-        class="absolute bottom-10 right-20 w-80 h-80 bg-primary-400/15 rounded-full blur-3xl"
+        class="absolute bottom-10 right-20 w-80 h-80 bg-brand-400/15 rounded-full blur-3xl"
       ></div>
       <div class="relative max-w-3xl mx-auto px-4 text-center fade-up">
         <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gradient">
           Pronto para Começar?
         </h2>
-        <p class="text-indigo-200 mb-10 max-w-lg mx-auto text-lg">
+        <p class="text-brand-200 mb-10 max-w-lg mx-auto text-lg">
           Cadastre-se gratuitamente no plano Intern e comece a avaliar atrações
           turísticas hoje mesmo.
         </p>
@@ -1280,12 +1268,12 @@
           href="https://sp4567.com/rNYX63k"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-glow inline-flex items-center gap-3 bg-white text-primary-700 hover:bg-primary-50 font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl hover:shadow-white/20 transition-all duration-300"
+          class="btn-glow inline-flex items-center gap-3 bg-white text-brand-700 hover:bg-brand-50 font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl hover:shadow-white/20 transition-all duration-300"
         >
           <i class="fa-solid fa-rocket"></i>
           Cadastro Gratuito
         </a>
-        <p class="text-indigo-300 text-xs mt-5">
+        <p class="text-brand-300 text-xs mt-5">
           Sem cartão de crédito. Sem compromisso.
         </p>
       </div>
@@ -1461,7 +1449,7 @@
           const pct =
             ((slider.value - slider.min) / (slider.max - slider.min)) * 100
           slider.style.background =
-            'linear-gradient(to right, #4f46e5 ' +
+            'linear-gradient(to right, #325de9 ' +
             pct +
             '%, #e2e8f0 ' +
             pct +
