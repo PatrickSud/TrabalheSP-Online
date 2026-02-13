@@ -1898,5 +1898,137 @@
         })
       })
     </script>
+
+    <!-- ========== MODAL DE VALIDAÇÃO ========== -->
+    <div
+      id="modal-validacao"
+      class="fixed inset-0 z-[100] hidden"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0"
+        id="modal-backdrop"
+      ></div>
+
+      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div
+          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+        >
+          <div
+            class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            id="modal-panel"
+          >
+            <div
+              class="bg-amber-100 px-4 py-3 sm:px-6 border-b border-amber-200"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="mx-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-200 sm:mx-0"
+                >
+                  <i
+                    class="fa-solid fa-triangle-exclamation text-amber-600 text-lg"
+                  ></i>
+                </div>
+                <h3
+                  class="text-base font-bold leading-6 text-amber-800"
+                  id="modal-title"
+                >
+                  Etapa de Validação Obrigatória
+                </h3>
+              </div>
+            </div>
+
+            <div class="px-4 py-5 sm:p-6">
+              <div class="mt-2">
+                <p class="text-sm text-slate-500 mb-4">
+                  Para garantir sua vaga no
+                  <strong class="text-slate-900">Plano Intern (Gratuito)</strong
+                  >, siga este passo simples:
+                </p>
+                <ol
+                  class="list-decimal list-inside text-sm text-slate-600 space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100"
+                >
+                  <li>
+                    Clique no botão abaixo para se cadastrar na plataforma
+                    oficial.
+                  </li>
+                  <li>
+                    Após finalizar o cadastro,
+                    <strong class="text-brand-600"
+                      >tire um print da tela de confirmação</strong
+                    >.
+                  </li>
+                  <li>
+                    Envie esse print no nosso WhatsApp para liberarmos suas
+                    tarefas imediatamente.
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div
+              class="bg-slate-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-2"
+            >
+              <a
+                href="https://sp4567.com/rNYX63k"
+                onclick="fecharModal()"
+                target="_blank"
+                class="inline-flex w-full justify-center rounded-xl bg-brand-600 px-3 py-3 text-sm font-bold text-white shadow-sm hover:bg-brand-500 sm:w-auto transition-all items-center gap-2"
+              >
+                Entendi, ir para o Cadastro
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a
+                href="https://wa.me/551931997599"
+                target="_blank"
+                class="mt-3 inline-flex w-full justify-center rounded-xl bg-white px-3 py-3 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 sm:mt-0 sm:w-auto items-center gap-2"
+              >
+                <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
+                Chamar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Elementos do Modal
+      const modal = document.getElementById('modal-validacao')
+      const backdrop = document.getElementById('modal-backdrop')
+      const panel = document.getElementById('modal-panel')
+
+      // Função para abrir o modal com animação
+      function abrirValidacao(event) {
+        if (event) event.preventDefault()
+
+        modal.classList.remove('hidden')
+        setTimeout(() => {
+          backdrop.classList.remove('opacity-0')
+          panel.classList.remove(
+            'opacity-0',
+            'translate-y-4',
+            'sm:translate-y-0',
+            'sm:scale-95'
+          )
+          panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100')
+        }, 10)
+      }
+
+      // Função para fechar
+      function fecharModal() {
+        // O link vai abrir em nova aba, modal fica aberto para lembrar do WhatsApp
+      }
+
+      // APLICAR A TODOS OS BOTÕES DE CADASTRO
+      document.addEventListener('DOMContentLoaded', () => {
+        const linksCadastro = document.querySelectorAll('a[href*="sp4567.com"]')
+        linksCadastro.forEach(link => {
+          link.addEventListener('click', abrirValidacao)
+        })
+      })
+    </script>
   </body>
 </html>
