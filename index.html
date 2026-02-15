@@ -2155,20 +2155,23 @@
 
           // 2. ENVIAR NOTIFICAÇÃO POR EMAIL (Usando FormSubmit - Grátis)
           try {
-            await fetch('https://formsubmit.co/ajax/patricksud96@gmail.com', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json'
-              },
-              body: JSON.stringify({
-                _subject: 'Novo Cadastro: ' + nome,
-                Nome: nome,
-                WhatsApp: telefone,
-                Data: new Date().toLocaleString('pt-BR'),
-                _captcha: 'false'
-              })
-            })
+            await fetch(
+              'https://formsubmit.co/ajax/ec6f580f9dc117ddf17ad01c27e92f44',
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json'
+                },
+                body: JSON.stringify({
+                  _subject: 'Novo Cadastro: ' + nome,
+                  Nome: nome,
+                  WhatsApp: telefone,
+                  Data: new Date().toLocaleString('pt-BR'),
+                  _captcha: 'false'
+                })
+              }
+            )
           } catch (emailError) {
             console.log(
               'Aviso: Email não enviado, mas salvo no banco.',
