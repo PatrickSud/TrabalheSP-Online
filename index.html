@@ -1977,20 +1977,6 @@
                     />
                   </div>
 
-                  <div>
-                    <label
-                      for="senha"
-                      class="block text-sm font-medium leading-6 text-slate-900"
-                      >Crie uma Senha</label
-                    >
-                    <input
-                      type="password"
-                      id="senha"
-                      required
-                      class="mt-1 block w-full rounded-xl border-0 py-3 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-
                   <div class="pt-2">
                     <button
                       type="submit"
@@ -2025,9 +2011,6 @@
                     <i class="fa-brands fa-whatsapp mr-1"></i> Entraremos em
                     contato via WhatsApp em breve para confirmar seus dados e
                     liberar o acesso.
-                  </p>
-                  <p class="text-xs text-slate-400">
-                    Fique atento(a) ao seu celular.
                   </p>
                 </div>
                 <button
@@ -2141,14 +2124,11 @@
         // Pegando os dados
         const nome = document.getElementById('nome').value
         const telefone = document.getElementById('telefone').value
-        const senha = document.getElementById('senha').value
-
         try {
           // 1. SALVAR NO FIREBASE
           await addDoc(collection(db, 'leads'), {
             nome: nome,
             telefone: telefone,
-            senha: senha,
             data_cadastro: serverTimestamp(),
             origem: 'Landing Page SP'
           })
