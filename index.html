@@ -2045,7 +2045,7 @@
     </div>
 
     <script type="module">
-      // Importando as funções do Firebase via CDN
+      // Importando as funções do Firebase
       import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js'
       import {
         getFirestore,
@@ -2068,7 +2068,7 @@
       const app = initializeApp(firebaseConfig)
       const db = getFirestore(app)
 
-      // --- LÓGICA DO MODAL ---
+      // --- VARIÁVEIS DO DOM ---
       const modal = document.getElementById('modal-cadastro')
       const backdrop = document.getElementById('modal-backdrop')
       const panel = document.getElementById('modal-panel')
@@ -2077,6 +2077,8 @@
       const telaSucesso = document.getElementById('tela-sucesso')
       const btnEnviar = document.getElementById('btn-enviar')
       const msgErro = document.getElementById('msg-erro')
+
+      // --- FUNÇÕES DE CONTROLE VISUAL ---
 
       // Expor a função fecharModal globalmente
       window.fecharModal = function () {
@@ -2112,7 +2114,7 @@
         }, 10)
       }
 
-      // Adiciona evento aos links de cadastro
+      // Adiciona evento aos links
       document.addEventListener('DOMContentLoaded', () => {
         const links = document.querySelectorAll('a[href*="sp4567.com"]')
         links.forEach(link => link.addEventListener('click', abrirModal))
@@ -2125,24 +2127,24 @@
         }
       }
 
-      // --- ENVIO PARA O FIREBASE ---
+      // --- LÓGICA DE ENVIO (Firebase + Email + WhatsApp) ---
       form.addEventListener('submit', async e => {
         e.preventDefault()
 
         // UI de Carregamento
         const textoOriginal = btnEnviar.innerHTML
         btnEnviar.innerHTML =
-          '<i class="fa-solid fa-circle-notch fa-spin"></i> Salvando...'
+          '<i class="fa-solid fa-circle-notch fa-spin"></i> Processando...'
         btnEnviar.disabled = true
         msgErro.classList.add('hidden')
 
-        // Pega os dados
+        // Pegando os dados
         const nome = document.getElementById('nome').value
         const telefone = document.getElementById('telefone').value
         const senha = document.getElementById('senha').value
 
         try {
-          // Salva na coleção "leads" do Firestore
+          // 1. SALVAR NO FIREBASE
           await addDoc(collection(db, 'leads'), {
             nome: nome,
             telefone: telefone,
@@ -2151,15 +2153,51 @@
             origem: 'Landing Page SP'
           })
 
-          // Sucesso!
+          // 2. ENVIAR NOTIFICAÇÃO POR EMAIL (Usando FormSubmit - Grátis)
+          try {
+            await fetch('https://formsubmit.co/ajax/patricksud96@gmail.com', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+              },
+              body: JSON.stringify({
+                _subject: 'Novo Cadastro: ' + nome,
+                Nome: nome,
+                WhatsApp: telefone,
+                Data: new Date().toLocaleString('pt-BR'),
+                _captcha: 'false'
+              })
+            })
+          } catch (emailError) {
+            console.log(
+              'Aviso: Email não enviado, mas salvo no banco.',
+              emailError
+            )
+          }
+
+          // 3. PREPARAR LINK DO WHATSAPP DO USUÁRIO
+          const msgWhatsApp = `Olá! Acabei de me cadastrar no site. Meu nome é *${nome}* e gostaria de liberar meu acesso.`
+          const linkWhatsApp = `https://wa.me/551931997599?text=${encodeURIComponent(msgWhatsApp)}`
+
+          // Atualiza o botão da tela de sucesso para ser um link direto pro Zap
+          const btnSucesso = telaSucesso.querySelector('p.bg-emerald-50')
+          if (btnSucesso) {
+            btnSucesso.innerHTML = `
+              <a href="${linkWhatsApp}" target="_blank" class="block w-full text-center font-bold text-emerald-700 hover:text-emerald-800">
+                <i class="fa-brands fa-whatsapp text-xl mr-1"></i> CLIQUE AQUI PARA FINALIZAR NO WHATSAPP
+              </a>
+            `
+          }
+
+          // 4. MOSTRAR SUCESSO
           telaForm.classList.add('hidden')
           telaSucesso.classList.remove('hidden')
         } catch (error) {
-          console.error('Erro ao salvar: ', error)
-          msgErro.textContent = 'Erro ao salvar. Verifique sua conexão.'
+          console.error('Erro geral: ', error)
+          msgErro.textContent = 'Erro ao conectar. Verifique sua internet.'
           msgErro.classList.remove('hidden')
 
-          // Restaura botão
           btnEnviar.innerHTML = textoOriginal
           btnEnviar.disabled = false
         }
