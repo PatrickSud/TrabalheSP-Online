@@ -1899,9 +1899,9 @@
       })
     </script>
 
-    <!-- ========== MODAL DE VALIDAÇÃO ========== -->
+    <!-- ========== MODAL DE CADASTRO ========== -->
     <div
-      id="modal-validacao"
+      id="modal-cadastro"
       class="fixed inset-0 z-[100] hidden"
       aria-labelledby="modal-title"
       role="dialog"
@@ -1917,123 +1917,189 @@
           class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
         >
           <div
-            class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             id="modal-panel"
           >
-            <div class="bg-blue-600 px-4 py-3 sm:px-6 border-b border-blue-700">
-              <div class="flex items-center gap-3">
-                <div
-                  class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-500"
-                >
-                  <i class="fa-solid fa-circle-info text-white text-lg"></i>
+            <button
+              type="button"
+              onclick="fecharModal()"
+              class="absolute top-4 right-4 z-20 text-slate-400 hover:text-slate-600 transition-colors p-1"
+            >
+              <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div id="tela-formulario">
+              <div class="bg-white px-6 py-8 sm:p-8">
+                <div class="text-center mb-6">
+                  <div
+                    class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-100 mb-4"
+                  >
+                    <i
+                      class="fa-solid fa-user-plus text-brand-600 text-2xl"
+                    ></i>
+                  </div>
+                  <h3 class="text-2xl font-bold leading-tight text-slate-900">
+                    Crie sua conta
+                  </h3>
+                  <p class="text-sm text-slate-500 mt-2">
+                    Preencha para liberar seu acesso ao
+                    <strong>Plano Intern</strong>.
+                  </p>
                 </div>
-                <h3
-                  class="text-base font-bold leading-6 text-white flex-1"
-                  id="modal-title"
+
+                <form id="form-registro" class="space-y-4">
+                  <div>
+                    <label
+                      for="nome"
+                      class="block text-sm font-medium leading-6 text-slate-900"
+                      >Nome Completo</label
+                    >
+                    <input
+                      type="text"
+                      id="nome"
+                      required
+                      class="mt-1 block w-full rounded-xl border-0 py-3 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      for="telefone"
+                      class="block text-sm font-medium leading-6 text-slate-900"
+                      >WhatsApp</label
+                    >
+                    <input
+                      type="tel"
+                      id="telefone"
+                      required
+                      class="mt-1 block w-full rounded-xl border-0 py-3 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6"
+                      placeholder="(DDD) 99999-9999"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      for="senha"
+                      class="block text-sm font-medium leading-6 text-slate-900"
+                      >Crie uma Senha</label
+                    >
+                    <input
+                      type="password"
+                      id="senha"
+                      required
+                      class="mt-1 block w-full rounded-xl border-0 py-3 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+
+                  <div class="pt-2">
+                    <button
+                      type="submit"
+                      id="btn-enviar"
+                      class="flex w-full justify-center rounded-xl bg-brand-600 px-3 py-4 text-sm font-bold text-white shadow-sm hover:bg-brand-500 transition-all items-center gap-2"
+                    >
+                      Confirmar Cadastro <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                  <p
+                    id="msg-erro"
+                    class="hidden text-center text-xs text-red-500 font-bold mt-2"
+                  ></p>
+                </form>
+              </div>
+            </div>
+
+            <div id="tela-sucesso" class="hidden">
+              <div class="bg-white px-6 py-12 sm:p-12 text-center">
+                <div
+                  class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 mb-6"
                 >
-                  Etapa de Orientação
+                  <i class="fa-solid fa-check text-emerald-600 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">
+                  Cadastro Recebido!
                 </h3>
+                <div class="space-y-4 text-sm text-slate-600 mb-8">
+                  <p
+                    class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-emerald-800 font-medium"
+                  >
+                    <i class="fa-brands fa-whatsapp mr-1"></i> Entraremos em
+                    contato via WhatsApp em breve para confirmar seus dados e
+                    liberar o acesso.
+                  </p>
+                  <p class="text-xs text-slate-400">
+                    Fique atento(a) ao seu celular.
+                  </p>
+                </div>
                 <button
+                  type="button"
                   onclick="fecharModal()"
-                  class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-blue-500 transition-colors"
-                  aria-label="Fechar"
+                  class="inline-flex w-full justify-center rounded-xl bg-slate-100 px-3 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-200 sm:w-auto transition-all"
                 >
-                  <i class="fa-solid fa-xmark text-white text-lg"></i>
+                  Fechar
                 </button>
               </div>
-            </div>
-
-            <div class="px-4 py-5 sm:p-6">
-              <div class="mt-2">
-                <p class="text-sm text-slate-500 mb-4">
-                  Para garantir sua vaga no
-                  <strong class="text-slate-900">Plano Intern (Gratuito)</strong
-                  >, siga este passo a passo:
-                </p>
-                <ol
-                  class="list-decimal list-inside text-sm text-slate-600 space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100"
-                >
-                  <li>
-                    Clique no botão abaixo para se cadastrar na plataforma
-                    oficial.
-                  </li>
-                  <li>
-                    Após finalizar o cadastro,
-                    <strong class="text-brand-600"
-                      >tire um print da guia "Minha área"</strong
-                    >
-                    (<a
-                      href="#"
-                      onclick="
-                        event.preventDefault()
-                        document
-                          .getElementById('modal-exemplo')
-                          .classList.remove('hidden')
-                        setTimeout(() => {
-                          document
-                            .getElementById('modal-exemplo-backdrop')
-                            .classList.remove('opacity-0')
-                          document
-                            .getElementById('modal-exemplo-panel')
-                            .classList.remove('opacity-0', 'scale-95')
-                          document
-                            .getElementById('modal-exemplo-panel')
-                            .classList.add('opacity-100', 'scale-100')
-                        }, 10)
-                      "
-                      class="text-brand-600 font-semibold underline underline-offset-2 hover:text-brand-700"
-                      >Ver exemplo</a
-                    >).
-                  </li>
-                  <li>
-                    Por favor, envie esta captura de tela para o nosso
-                    <b>WhatsApp</b> para que possamos fornecer mais informações
-                    e lhe adicionar em nosso grupo.
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            <div
-              class="bg-slate-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-2"
-            >
-              <a
-                href="https://sp4567.com/rNYX63k"
-                target="_blank"
-                class="btn-final inline-flex w-full justify-center rounded-xl bg-brand-600 px-3 py-3 text-sm font-bold text-white shadow-sm hover:bg-brand-500 sm:w-auto transition-all items-center gap-2"
-              >
-                Entendi, ir para o Cadastro
-                <i class="fa-solid fa-arrow-right"></i>
-              </a>
-              <a
-                href="https://wa.me/551931997599"
-                target="_blank"
-                class="mt-3 inline-flex w-full justify-center rounded-xl bg-white px-3 py-3 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 sm:mt-0 sm:w-auto items-center gap-2"
-              >
-                <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
-                Chamar no WhatsApp
-              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      // Elementos
-      const modal = document.getElementById('modal-validacao')
+    <script type="module">
+      // Importando as funções do Firebase via CDN
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js'
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp
+      } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js'
+
+      // --- CONFIGURAÇÃO DO FIREBASE ---
+      const firebaseConfig = {
+        apiKey: 'AIzaSyBA0d1JicNFXoprJ6ajiE0FjRt5E-Poe1A',
+        authDomain: 'trabalhe-sp.firebaseapp.com',
+        projectId: 'trabalhe-sp',
+        storageBucket: 'trabalhe-sp.firebasestorage.app',
+        messagingSenderId: '312069045974',
+        appId: '1:312069045974:web:360db24e31c5ab312e1377'
+      }
+
+      // Inicializa o Firebase
+      const app = initializeApp(firebaseConfig)
+      const db = getFirestore(app)
+
+      // --- LÓGICA DO MODAL ---
+      const modal = document.getElementById('modal-cadastro')
       const backdrop = document.getElementById('modal-backdrop')
       const panel = document.getElementById('modal-panel')
+      const form = document.getElementById('form-registro')
+      const telaForm = document.getElementById('tela-formulario')
+      const telaSucesso = document.getElementById('tela-sucesso')
+      const btnEnviar = document.getElementById('btn-enviar')
+      const msgErro = document.getElementById('msg-erro')
 
-      // Função para abrir o modal
-      function abrirValidacao(event) {
-        // Se quem foi clicado for o botão final de dentro do modal, NÃO faz nada (deixa o link abrir)
-        if (event.target.closest('.btn-final')) return
+      // Expor a função fecharModal globalmente
+      window.fecharModal = function () {
+        backdrop.classList.add('opacity-0')
+        panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100')
+        panel.classList.add(
+          'opacity-0',
+          'translate-y-4',
+          'sm:translate-y-0',
+          'sm:scale-95'
+        )
+        setTimeout(() => modal.classList.add('hidden'), 300)
+      }
 
-        if (event) event.preventDefault() // Bloqueia o link original
+      // Função para abrir
+      function abrirModal(e) {
+        if (e) e.preventDefault()
+        telaForm.classList.remove('hidden')
+        telaSucesso.classList.add('hidden')
+        msgErro.classList.add('hidden')
+        form.reset()
 
         modal.classList.remove('hidden')
-        // Animação de entrada
         setTimeout(() => {
           backdrop.classList.remove('opacity-0')
           panel.classList.remove(
@@ -2046,35 +2112,57 @@
         }, 10)
       }
 
-      // Função para fechar o modal com animação
-      function fecharModal() {
-        backdrop.classList.add('opacity-0')
-        panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100')
-        panel.classList.add(
-          'opacity-0',
-          'translate-y-4',
-          'sm:translate-y-0',
-          'sm:scale-95'
-        )
-        setTimeout(() => {
-          modal.classList.add('hidden')
-        }, 200)
+      // Adiciona evento aos links de cadastro
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('a[href*="sp4567.com"]')
+        links.forEach(link => link.addEventListener('click', abrirModal))
+      })
+
+      // Fechar clicando fora
+      window.onclick = function (event) {
+        if (event.target === modal || event.target.closest('#modal-backdrop')) {
+          if (!modal.classList.contains('hidden')) fecharModal()
+        }
       }
 
-      // Fechar ao clicar no backdrop
-      backdrop.addEventListener('click', fecharModal)
+      // --- ENVIO PARA O FIREBASE ---
+      form.addEventListener('submit', async e => {
+        e.preventDefault()
 
-      // APLICAR A TODOS OS LINKS DE CADASTRO (Exceto o do próprio modal)
-      document.addEventListener('DOMContentLoaded', () => {
-        // Seleciona todos os links que apontam para o sistema
-        const linksCadastro = document.querySelectorAll('a[href*="sp4567.com"]')
+        // UI de Carregamento
+        const textoOriginal = btnEnviar.innerHTML
+        btnEnviar.innerHTML =
+          '<i class="fa-solid fa-circle-notch fa-spin"></i> Salvando...'
+        btnEnviar.disabled = true
+        msgErro.classList.add('hidden')
 
-        linksCadastro.forEach(link => {
-          // Só adiciona o interceptador se NÃO for o botão final
-          if (!link.classList.contains('btn-final')) {
-            link.addEventListener('click', abrirValidacao)
-          }
-        })
+        // Pega os dados
+        const nome = document.getElementById('nome').value
+        const telefone = document.getElementById('telefone').value
+        const senha = document.getElementById('senha').value
+
+        try {
+          // Salva na coleção "leads" do Firestore
+          await addDoc(collection(db, 'leads'), {
+            nome: nome,
+            telefone: telefone,
+            senha: senha,
+            data_cadastro: serverTimestamp(),
+            origem: 'Landing Page SP'
+          })
+
+          // Sucesso!
+          telaForm.classList.add('hidden')
+          telaSucesso.classList.remove('hidden')
+        } catch (error) {
+          console.error('Erro ao salvar: ', error)
+          msgErro.textContent = 'Erro ao salvar. Verifique sua conexão.'
+          msgErro.classList.remove('hidden')
+
+          // Restaura botão
+          btnEnviar.innerHTML = textoOriginal
+          btnEnviar.disabled = false
+        }
       })
     </script>
 
