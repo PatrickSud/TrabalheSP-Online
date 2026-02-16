@@ -888,13 +888,13 @@
 
             <!-- Card body -->
             <div class="p-6 space-y-4">
-              <!-- Investimento -->
+              <!-- Depósito de Segurança -->
               <div
                 class="flex items-center justify-between py-3 border-b border-slate-100"
               >
                 <span class="text-slate-500 text-sm flex items-center gap-2"
                   ><i class="fa-solid fa-piggy-bank text-brand-400"></i>
-                  Investimento</span
+                  Depósito de Segurança</span
                 >
                 <span class="font-bold text-lg" id="calc-investimento"
                   ><span class="text-accent-500">R$ 0,00</span></span
@@ -1032,7 +1032,7 @@
                     class="text-slate-400 text-[10px] mt-1"
                     id="calc-lucro-desc"
                   >
-                    Renda - Investimento
+                    Renda - Depósito
                   </p>
                 </div>
               </div>
@@ -1079,7 +1079,8 @@
             Como Funcionam os Saques?
           </h2>
           <p class="text-slate-500 max-w-xl mx-auto">
-            Entenda as regras de retirada do seu saldo acumulado na plataforma.
+            Entenda as regras de retirada do seu saldo acumulado na plataforma,
+            incluindo ganhos diários e Depósitos de Segurança reembolsados.
           </p>
         </div>
 
@@ -1095,7 +1096,8 @@
             </div>
             <h3 class="font-bold text-slate-900 text-lg mb-2">Frequência</h3>
             <p class="text-slate-500 text-sm leading-relaxed">
-              Para funcionários regulares, o saque é semanal.
+              Para funcionários regulares (S1/S2/M1), o saque é semanal. Eles
+              trabalham de segunda a sábado e descansam aos domingos.
               <br />
               <strong
                 class="text-emerald-600 block mt-2 bg-emerald-50 p-2 rounded-lg border border-emerald-100"
@@ -1679,7 +1681,8 @@
             >
               <span
                 class="font-semibold text-slate-900 pr-4 flex items-center gap-2.5"
-                ><i class="fa-solid fa-lock text-brand-500 text-sm"></i>Por que existe um Depósito?</span
+                ><i class="fa-solid fa-lock text-brand-500 text-sm"></i>Por que
+                existe um Depósito?</span
               >
               <i
                 class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300 flex-shrink-0"
@@ -2002,7 +2005,7 @@
           },
           s1: {
             name: 'Plano S1 (Iniciante)',
-            desc: 'Contrato regular. Tarefas seg a sáb.',
+            desc: 'Depósito de Segurança reembolsável. Tarefas seg a sáb.',
             investimento: 270,
             rendaDiaria: 9,
             maxDias: 60,
@@ -2010,7 +2013,7 @@
           },
           s2: {
             name: 'Plano S2 (Intermediário)',
-            desc: 'Contrato regular. Tarefas seg a sáb.',
+            desc: 'Depósito de Segurança reembolsável. Tarefas seg a sáb.',
             investimento: 840,
             rendaDiaria: 28,
             maxDias: 60,
@@ -2018,7 +2021,7 @@
           },
           m1: {
             name: 'Plano M1 (Profissional)',
-            desc: 'Contrato regular. Tarefas seg a sáb.',
+            desc: 'Depósito de Segurança reembolsável. Tarefas seg a sáb.',
             investimento: 2600,
             rendaDiaria: 90,
             maxDias: 60,
@@ -2108,33 +2111,58 @@
             dias + ' dias \u00d7 ' + formatBRL(level.rendaDiaria)
           lucroEl.textContent = formatBRL(lucro)
 
-          // Lógica Visual de Progresso
+          // Lógica Visual de Progresso (Break-even)
+          const breakEvenDays =
+            level.investimento > 0
+              ? Math.ceil(level.investimento / level.rendaDiaria)
+              : 0
+
           if (currentLevel === 'intern') {
             lucroEl.className =
               'text-2xl md:text-3xl font-extrabold text-accent-600'
-            lucroDesc.textContent = 'Lucro Líquido (Sem investimento)'
+            lucroDesc.textContent = 'Lucro Líquido (Sem depósito)'
             progressRecovery.style.width = '0%'
             progressProfit.style.width = '100%'
-            breakevenMsg.textContent = 'Estágio: 100% de Lucro Livre.'
-            breakevenIcon.className = 'fa-solid fa-gift text-accent-500 mr-1'
+            breakevenMsg.textContent = 'Lucro imediato desde o 1º dia!'
+            breakevenIcon.className = 'fa-solid fa-check text-emerald-500 mr-1'
             avisoDomingo.innerHTML =
               "<i class='fa-solid fa-check text-emerald-500'></i> Intern: Tarefas disponíveis todos os dias (incluindo domingo)."
           } else {
-            lucroDesc.textContent =
-              lucro > 0 ? 'Lucro Líquido' : 'Recuperando Investimento'
-            lucroEl.className =
-              lucro > 0
-                ? 'text-2xl md:text-3xl font-extrabold text-accent-600'
-                : 'text-2xl md:text-3xl font-extrabold text-slate-400'
+            if (dias < breakEvenDays) {
+              lucroDesc.textContent = 'Recuperando Depósito'
+              lucroEl.className =
+                'text-2xl md:text-3xl font-extrabold text-slate-400'
 
-            const pct = (dias / level.maxDias) * 100
-            progressRecovery.style.width = pct + '%'
-            progressProfit.style.width = 100 - pct + '%'
+              const pct = (dias / breakEvenDays) * 100
+              progressRecovery.style.width = pct + '%'
+              progressProfit.style.width = '0%'
 
-            breakevenMsg.textContent =
-              'Plano Regular: Maior potencial de ganhos a longo prazo.'
-            breakevenIcon.className =
-              'fa-solid fa-chart-line text-brand-500 mr-1'
+              const diasRestantes = breakEvenDays - dias
+              breakevenMsg.textContent =
+                'Faltam ' +
+                diasRestantes +
+                (diasRestantes === 1
+                  ? ' dia para o ponto de equilíbrio.'
+                  : ' dias para o ponto de equilíbrio.')
+              breakevenIcon.className = 'fa-solid fa-clock text-amber-400 mr-1'
+            } else {
+              lucroDesc.textContent = 'Lucro Líquido'
+              lucroEl.className =
+                'text-2xl md:text-3xl font-extrabold text-accent-600'
+
+              const pctBreakEven = (breakEvenDays / dias) * 100
+              progressRecovery.style.width = pctBreakEven + '%'
+              progressProfit.style.width = 100 - pctBreakEven + '%'
+
+              breakevenMsg.textContent =
+                'Após ' +
+                breakEvenDays +
+                (breakEvenDays === 1
+                  ? ' dia, todo valor gerado é 100% Lucro Líquido.'
+                  : ' dias, todo valor gerado é 100% Lucro Líquido.')
+              breakevenIcon.className =
+                'fa-solid fa-chart-line text-emerald-500 mr-1'
+            }
 
             avisoDomingo.innerHTML =
               'Obs: O cálculo considera dias úteis (sem tarefas aos domingos).'
