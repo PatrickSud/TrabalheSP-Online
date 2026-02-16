@@ -730,6 +730,13 @@
                     >Lucro imediato desde o 1º dia!</span
                   >
                 </p>
+                <p
+                  class="text-xs text-slate-400 mt-1 text-center"
+                  id="calc-aviso-domingo"
+                >
+                  <i class="fa-solid fa-check text-emerald-500"></i> Intern:
+                  Tarefas disponíveis todos os dias (incluindo domingo).
+                </p>
               </div>
 
               <!-- Resultados -->
@@ -837,9 +844,14 @@
             </div>
             <h3 class="font-bold text-slate-900 text-lg mb-2">Frequência</h3>
             <p class="text-slate-500 text-sm leading-relaxed">
-              O saque ocorre
-              <strong class="text-slate-700">1 vez por semana</strong>. O dia
-              disponível varia conforme o seu nível na plataforma.
+              Para funcionários regulares, o saque é semanal.
+              <br />
+              <strong
+                class="text-emerald-600 block mt-2 bg-emerald-50 p-2 rounded-lg border border-emerald-100"
+              >
+                <i class="fa-solid fa-star mr-1"></i> Nível Intern: Saque
+                liberado qualquer dia!
+              </strong>
             </p>
           </div>
 
@@ -1427,9 +1439,9 @@
             </button>
             <div class="faq-answer px-6">
               <p class="text-slate-500 text-sm leading-relaxed pb-5">
-                Não. O nível Intern (Estágio) é 100% gratuito. Você não precisa
-                fazer nenhum depósito para começar a realizar tarefas e acumular
-                recompensas.
+                Não. O nível Intern é um estágio gratuito de 4 dias. Você entra,
+                realiza tarefas, acumula saldo e pode usar esse valor para
+                ajudar a migrar para o nível S1 (Efetivo).
               </p>
             </div>
           </div>
@@ -1533,9 +1545,12 @@
             </button>
             <div class="faq-answer px-6">
               <p class="text-slate-500 text-sm leading-relaxed pb-5">
-                No plano Intern (Estágio), você recebe 4 tarefas diárias. Planos
-                superiores oferecem mais tarefas e valores por avaliação.
-                Confira as opções após o cadastro.
+                No nível <strong>Intern (Estágio)</strong>, você recebe 4
+                tarefas diárias (R$ 8,00/dia) durante um período de teste de 4
+                dias, inclusive aos domingos. <br /><br />
+                Após concluir o estágio e acumular seus ganhos, você pode migrar
+                para um nível oficial (S1, S2, etc) para continuar trabalhando e
+                aumentar sua renda.
               </p>
             </div>
           </div>
@@ -1711,36 +1726,40 @@
       )
       fadeEls.forEach(el => obs.observe(el))
 
-      // --- Calculadora Multi-Nível com Break-even ---
+      // --- Calculadora Multi-Nível (Lógica Atualizada: Intern 4 dias) ---
       ;(function initCalc() {
         const LEVELS = {
           intern: {
-            name: 'Plano Intern (Estágio)',
-            desc: 'Gratuito — Sem depósito necessário',
+            name: 'Plano Intern (Estágio - 4 Dias)',
+            desc: 'Período de experiência. Saque liberado qualquer dia.',
             investimento: 0,
             rendaDiaria: 8,
-            breakeven: 1
+            maxDias: 4,
+            domingo: true
           },
           s1: {
             name: 'Plano S1 (Iniciante)',
-            desc: 'Remuneração por produtividade',
+            desc: 'Contrato regular. Tarefas seg a sáb.',
             investimento: 270,
             rendaDiaria: 9,
-            breakeven: 30
+            maxDias: 60,
+            domingo: false
           },
           s2: {
             name: 'Plano S2 (Intermediário)',
-            desc: 'Remuneração por produtividade',
+            desc: 'Contrato regular. Tarefas seg a sáb.',
             investimento: 840,
             rendaDiaria: 28,
-            breakeven: 30
+            maxDias: 60,
+            domingo: false
           },
           m1: {
             name: 'Plano M1 (Profissional)',
-            desc: 'Remuneração por produtividade',
+            desc: 'Contrato regular. Tarefas seg a sáb.',
             investimento: 2600,
             rendaDiaria: 90,
-            breakeven: 29
+            maxDias: 60,
+            domingo: false
           }
         }
 
@@ -1761,6 +1780,7 @@
         const progressProfit = document.getElementById('calc-progress-profit')
         const breakevenMsg = document.getElementById('calc-breakeven-msg')
         const breakevenIcon = document.querySelector('#calc-breakeven-text i')
+        const avisoDomingo = document.getElementById('calc-aviso-domingo')
 
         function formatBRL(v) {
           return (
@@ -1785,20 +1805,24 @@
 
         function update() {
           const level = LEVELS[currentLevel]
+
+          // Garante que o slider respeite o máximo do nível
+          if (parseInt(slider.value) > level.maxDias) {
+            slider.value = level.maxDias
+          }
+
           const dias = parseInt(slider.value)
           const renda = dias * level.rendaDiaria
           const lucro = Math.max(0, renda - level.investimento)
-          const be = level.breakeven
-          const maxDias = parseInt(slider.max)
 
           // Header
           planName.textContent = level.name
           planDesc.textContent = level.desc
 
-          // Investimento display
+          // Investimento
           if (level.investimento === 0) {
             investEl.innerHTML =
-              '<span class="text-accent-500 font-extrabold">R$ 0,00</span> <span class="text-accent-500 text-xs ml-1">GRÁTIS</span>'
+              '<span class="text-accent-500 font-extrabold">R$ 0,00</span> <span class="text-accent-500 text-xs ml-1">TESTE</span>'
           } else {
             investEl.innerHTML =
               '<span class="text-slate-900">' +
@@ -1808,60 +1832,55 @@
 
           // Values
           rendaDiariaEl.textContent = formatBRL(level.rendaDiaria)
-          diasLabel.textContent =
-            dias + (dias === 1 ? ' Dia Útil' : ' Dias Úteis')
-          rendaTotal.textContent = formatBRL(renda)
-          detalhe.textContent =
-            dias +
-            (dias === 1 ? ' Dia Útil' : ' Dias Úteis') +
-            ' \u00d7 ' +
-            formatBRL(level.rendaDiaria)
-          lucroEl.textContent = formatBRL(lucro)
+          diasLabel.textContent = dias + (dias === 1 ? ' Dia' : ' Dias')
 
-          if (lucro > 0) {
-            lucroEl.className =
-              'text-2xl md:text-3xl font-extrabold text-accent-600'
-            lucroDesc.textContent = 'Renda - Saldo Inicial'
-          } else {
-            lucroEl.className =
-              'text-2xl md:text-3xl font-extrabold text-slate-400'
-            lucroDesc.textContent = 'Continue para ver o lucro'
+          // Aviso se atingiu o máximo no Intern
+          if (currentLevel === 'intern' && dias === 4) {
+            diasLabel.innerHTML +=
+              " <span class='text-xs text-red-500'>(Máximo)</span>"
           }
 
-          // Progress bar
-          if (level.investimento === 0) {
+          rendaTotal.textContent = formatBRL(renda)
+          detalhe.textContent =
+            dias + ' dias \u00d7 ' + formatBRL(level.rendaDiaria)
+          lucroEl.textContent = formatBRL(lucro)
+
+          // Lógica Visual de Progresso
+          if (currentLevel === 'intern') {
+            lucroEl.className =
+              'text-2xl md:text-3xl font-extrabold text-accent-600'
+            lucroDesc.textContent = 'Lucro Líquido (Sem investimento)'
             progressRecovery.style.width = '0%'
             progressProfit.style.width = '100%'
-            breakevenMsg.textContent = 'Lucro imediato desde o 1\u00ba dia!'
-            breakevenIcon.className =
-              'fa-solid fa-circle-check text-emerald-500 mr-1'
+            breakevenMsg.textContent = 'Estágio: 100% de Lucro Livre.'
+            breakevenIcon.className = 'fa-solid fa-gift text-accent-500 mr-1'
+            avisoDomingo.innerHTML =
+              "<i class='fa-solid fa-check text-emerald-500'></i> Intern: Tarefas disponíveis todos os dias (incluindo domingo)."
           } else {
-            const recoveryPct = Math.min((be / maxDias) * 100, 100)
-            const currentPct = (dias / maxDias) * 100
-            if (dias < be) {
-              progressRecovery.style.width = currentPct + '%'
-              progressProfit.style.width = '0%'
-              breakevenMsg.textContent =
-                'Faltam ' +
-                (be - dias) +
-                ' dias para o ponto de equil\u00edbrio.'
-              breakevenIcon.className = 'fa-solid fa-clock text-amber-500 mr-1'
-            } else {
-              progressRecovery.style.width = recoveryPct + '%'
-              progressProfit.style.width = currentPct - recoveryPct + '%'
-              breakevenMsg.textContent =
-                'Ap\u00f3s ' +
-                be +
-                ' dias, todo valor gerado \u00e9 100% Lucro L\u00edquido.'
-              breakevenIcon.className =
-                'fa-solid fa-circle-check text-emerald-500 mr-1'
-            }
+            lucroDesc.textContent =
+              lucro > 0 ? 'Lucro Líquido' : 'Recuperando Investimento'
+            lucroEl.className =
+              lucro > 0
+                ? 'text-2xl md:text-3xl font-extrabold text-accent-600'
+                : 'text-2xl md:text-3xl font-extrabold text-slate-400'
+
+            const pct = (dias / level.maxDias) * 100
+            progressRecovery.style.width = pct + '%'
+            progressProfit.style.width = 100 - pct + '%'
+
+            breakevenMsg.textContent =
+              'Plano Regular: Maior potencial de ganhos a longo prazo.'
+            breakevenIcon.className =
+              'fa-solid fa-chart-line text-brand-500 mr-1'
+
+            avisoDomingo.innerHTML =
+              'Obs: O cálculo considera dias úteis (sem tarefas aos domingos).'
           }
 
           updateSliderBg()
         }
 
-        // Tab clicks — auto-move slider to break-even
+        // Tab clicks
         document.querySelectorAll('#calc-tabs .calc-tab').forEach(tab => {
           tab.addEventListener('click', () => {
             document
@@ -1869,28 +1888,42 @@
               .forEach(t => t.classList.remove('active'))
             tab.classList.add('active')
             currentLevel = tab.dataset.level
-            slider.value = LEVELS[currentLevel].breakeven
+
+            // Ajusta o máximo do slider dinamicamente
+            slider.max = LEVELS[currentLevel].maxDias
+
+            // Se for intern, joga pro maximo (4). Se for outro, joga pra 30 (média)
+            slider.value = currentLevel === 'intern' ? 4 : 30
+
             update()
           })
         })
 
         slider.addEventListener('input', update)
+
+        // Inicializa como Intern (max 4)
+        slider.max = 4
+        slider.value = 4
         update()
       })()
 
       // --- Smooth scroll for anchor links ---
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault()
-          const target = document.querySelector(this.getAttribute('href'))
-          if (target) {
-            const headerHeight = header.offsetHeight
-            const targetPosition =
-              target.getBoundingClientRect().top + window.scrollY - headerHeight
-            window.scrollTo({ top: targetPosition, behavior: 'smooth' })
-          }
+      document
+        .querySelectorAll('a[href^="#"]:not([href="#cadastro-modal"])')
+        .forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault()
+            const target = document.querySelector(this.getAttribute('href'))
+            if (target) {
+              const headerHeight = header.offsetHeight
+              const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight
+              window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+            }
+          })
         })
-      })
     </script>
 
     <!-- ========== MODAL DE CADASTRO ========== -->
