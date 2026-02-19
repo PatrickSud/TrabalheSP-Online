@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/acesso",
+      "destination": "https://sp4567.com",
+      "permanent": true
+    },
+    {
+      "source": "/cadastro",
+      "destination": "https://sp4567.com/rNYX63k",
+      "permanent": true
+    }
+  ]
+}
