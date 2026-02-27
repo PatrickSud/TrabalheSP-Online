@@ -134,7 +134,7 @@
           padding 0.35s ease;
       }
       .faq-answer.open {
-        max-height: 300px;
+        max-height: 1000px;
       }
 
       /* Header scroll */
@@ -2267,7 +2267,8 @@
               <i class="fa-solid fa-xmark text-xl"></i>
             </button>
 
-            <div id="tela-formulario">
+            <!-- ETAPA 1: Seus Dados -->
+            <div id="tela-passo-1">
               <div class="bg-white px-6 py-8 sm:p-8">
                 <div class="text-center mb-6">
                   <div
@@ -2278,7 +2279,7 @@
                     ></i>
                   </div>
                   <h3 class="text-2xl font-bold leading-tight text-slate-900">
-                    Crie sua conta
+                    Etapa 1 de 3: Seus Dados
                   </h3>
                   <p class="text-sm text-slate-500 mt-2">
                     Preencha para liberar seu acesso ao
@@ -2311,8 +2312,11 @@
                       type="tel"
                       id="telefone"
                       required
+                      minlength="10"
+                      maxlength="11"
+                      oninput="this.value = this.value.replace(/\D/g, '')"
                       class="mt-1 block w-full rounded-xl border-0 py-3 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6"
-                      placeholder="(DDD) 99999-9999"
+                      placeholder="DDD + Número (apenas números)"
                     />
                   </div>
 
@@ -2322,7 +2326,7 @@
                       id="btn-enviar"
                       class="flex w-full justify-center rounded-xl bg-brand-600 px-3 py-4 text-sm font-bold text-white shadow-sm hover:bg-brand-500 transition-all items-center gap-2"
                     >
-                      Confirmar Cadastro <i class="fa-solid fa-arrow-right"></i>
+                      Continuar <i class="fa-solid fa-arrow-right"></i>
                     </button>
                   </div>
                   <p
@@ -2330,9 +2334,83 @@
                     class="hidden text-center text-xs text-red-500 font-bold mt-2"
                   ></p>
                 </form>
+
+                <!-- Separador e Acesso Antigo -->
+                <div class="mt-8 pt-6 border-t border-slate-100 text-center">
+                  <div class="relative mb-6">
+                    <div class="absolute inset-0 flex items-center">
+                      <div class="w-full border-t border-slate-100"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                      <span class="bg-white px-2 text-slate-400">ou</span>
+                    </div>
+                  </div>
+                  <p class="text-sm text-slate-500 mb-3">Já possui cadastro?</p>
+                  <a
+                    href="https://trabalhe-sp.com.br/acesso"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-700 transition-colors"
+                  >
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Acesso à Plataforma
+                  </a>
+                </div>
               </div>
             </div>
 
+            <!-- ETAPA 2: Cadastro na Plataforma -->
+            <div id="tela-passo-2" class="hidden">
+              <div class="bg-white px-6 py-8 sm:p-8">
+                <div class="text-center mb-6">
+                  <div
+                    class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 mb-4"
+                  >
+                    <i class="fa-solid fa-id-card text-amber-600 text-2xl"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold leading-tight text-slate-900">
+                    Etapa 2 de 3: Ative seu Estágio
+                  </h3>
+                  <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                    Para liberar suas tarefas do nível
+                    <strong>Intern (Estágio)</strong>, crie seu login oficial na
+                    plataforma de avaliações clicando no botão abaixo.
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <a
+                    href="https://trabalhe-sp.com.br/cadastro"
+                    target="_blank"
+                    class="flex w-full justify-center rounded-xl bg-brand-600 px-3 py-4 text-sm font-bold text-white shadow-sm hover:bg-brand-500 transition-all items-center gap-2"
+                  >
+                    1. Acessar Plataforma
+                    <i class="fa-solid fa-external-link text-xs"></i>
+                  </a>
+
+                  <div
+                    class="bg-amber-50 border border-amber-100 p-4 rounded-xl"
+                  >
+                    <p
+                      class="text-xs text-amber-800 font-medium leading-relaxed"
+                    >
+                      ⚠️ Após finalizar o cadastro lá, volte aqui e clique em
+                      avançar.
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onclick="irParaPasso3()"
+                    class="flex w-full justify-center rounded-xl border-2 border-slate-200 bg-white px-3 py-4 text-sm font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition-all items-center gap-2"
+                  >
+                    2. Já me cadastrei, Avançar
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ETAPA 3: Sucesso / WhatsApp -->
             <div id="tela-sucesso" class="hidden">
               <div class="bg-white px-6 py-12 sm:p-12 text-center">
                 <div
@@ -2341,15 +2419,15 @@
                   <i class="fa-solid fa-check text-emerald-600 text-4xl"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-slate-900 mb-4">
-                  Cadastro Recebido!
+                  Etapa 3 de 3: Liberação Final!
                 </h3>
                 <div class="space-y-4 text-sm text-slate-600 mb-8">
                   <p
+                    id="link-whatsapp-container"
                     class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-emerald-800 font-medium"
                   >
-                    <i class="fa-brands fa-whatsapp mr-1"></i> Entraremos em
-                    contato via WhatsApp em breve para confirmar seus dados e
-                    liberar o acesso.
+                    <i class="fa-brands fa-whatsapp mr-1"></i> Finalize agora a
+                    liberação do seu acesso via WhatsApp.
                   </p>
                 </div>
                 <button
@@ -2395,7 +2473,8 @@
       const backdrop = document.getElementById('modal-backdrop')
       const panel = document.getElementById('modal-panel')
       const form = document.getElementById('form-registro')
-      const telaForm = document.getElementById('tela-formulario')
+      const telaPasso1 = document.getElementById('tela-passo-1')
+      const telaPasso2 = document.getElementById('tela-passo-2')
       const telaSucesso = document.getElementById('tela-sucesso')
       const btnEnviar = document.getElementById('btn-enviar')
       const msgErro = document.getElementById('msg-erro')
@@ -2415,10 +2494,30 @@
         setTimeout(() => modal.classList.add('hidden'), 300)
       }
 
+      // Função para avançar para o passo 3
+      window.irParaPasso3 = function () {
+        const nome = document.getElementById('nome').value
+        const msgWhatsApp = `Olá! Acabei de me cadastrar no site. Meu nome é *${nome}* e gostaria de liberar meu acesso.`
+        const linkWhatsApp = `https://wa.me/551931997599?text=${encodeURIComponent(msgWhatsApp)}`
+
+        const container = document.getElementById('link-whatsapp-container')
+        if (container) {
+          container.innerHTML = `
+            <a href="${linkWhatsApp}" target="_blank" class="block w-full text-center font-bold text-emerald-700 hover:text-emerald-800">
+              <i class="fa-brands fa-whatsapp text-xl mr-1"></i> CLIQUE AQUI PARA FINALIZAR NO WHATSAPP
+            </a>
+          `
+        }
+
+        telaPasso2.classList.add('hidden')
+        telaSucesso.classList.remove('hidden')
+      }
+
       // Função para abrir
       function abrirModal(e) {
         if (e) e.preventDefault()
-        telaForm.classList.remove('hidden')
+        telaPasso1.classList.remove('hidden')
+        telaPasso2.classList.add('hidden')
         telaSucesso.classList.add('hidden')
         msgErro.classList.add('hidden')
         form.reset()
@@ -2498,23 +2597,9 @@
             )
           }
 
-          // 3. PREPARAR LINK DO WHATSAPP DO USUÁRIO
-          const msgWhatsApp = `Olá! Acabei de me cadastrar no site. Meu nome é *${nome}* e gostaria de liberar meu acesso.`
-          const linkWhatsApp = `https://wa.me/551931997599?text=${encodeURIComponent(msgWhatsApp)}`
-
-          // Atualiza o botão da tela de sucesso para ser um link direto pro Zap
-          const btnSucesso = telaSucesso.querySelector('p.bg-emerald-50')
-          if (btnSucesso) {
-            btnSucesso.innerHTML = `
-              <a href="${linkWhatsApp}" target="_blank" class="block w-full text-center font-bold text-emerald-700 hover:text-emerald-800">
-                <i class="fa-brands fa-whatsapp text-xl mr-1"></i> CLIQUE AQUI PARA FINALIZAR NO WHATSAPP
-              </a>
-            `
-          }
-
-          // 4. MOSTRAR SUCESSO
-          telaForm.classList.add('hidden')
-          telaSucesso.classList.remove('hidden')
+          // 3. MOSTRAR ETAPA 2
+          telaPasso1.classList.add('hidden')
+          telaPasso2.classList.remove('hidden')
         } catch (error) {
           console.error('Erro geral: ', error)
           msgErro.textContent = 'Erro ao conectar. Verifique sua internet.'
