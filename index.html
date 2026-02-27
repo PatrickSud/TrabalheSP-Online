@@ -2336,15 +2336,12 @@
                 </form>
 
                 <!-- Separador e Acesso Antigo -->
-                <div class="mt-8 pt-6 border-t border-slate-100 text-center">
-                  <div class="relative mb-6">
-                    <div class="absolute inset-0 flex items-center">
-                      <div class="w-full border-t border-slate-100"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                      <span class="bg-white px-2 text-slate-400">ou</span>
-                    </div>
-                  </div>
+                <div class="mt-8 pt-6 text-center">
+                  <p
+                    class="text-xs font-bold text-slate-500 tracking-wide uppercase mb-3"
+                  >
+                    ou
+                  </p>
                   <p class="text-sm text-slate-500 mb-3">Já possui cadastro?</p>
                   <a
                     href="https://trabalhe-sp.com.br/acesso"
@@ -2352,7 +2349,7 @@
                     class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-700 transition-colors"
                   >
                     <i class="fa-solid fa-right-to-bracket"></i>
-                    Acesso à Plataforma
+                    Acesso à Plataforma SP
                   </a>
                 </div>
               </div>
@@ -2394,7 +2391,7 @@
                       class="text-xs text-amber-800 font-medium leading-relaxed"
                     >
                       ⚠️ Após finalizar o cadastro lá, volte aqui e clique em
-                      avançar.
+                      <b>avançar</b>.
                     </p>
                   </div>
 
@@ -2561,7 +2558,19 @@
 
         // Pegando os dados
         const nome = document.getElementById('nome').value
-        const telefone = document.getElementById('telefone').value
+        const telefoneInput = document.getElementById('telefone')
+        const telefone = telefoneInput.value.replace(/\D/g, '')
+
+        if (telefone.length < 10 || telefone.length > 11) {
+          msgErro.textContent =
+            'Digite um WhatsApp válido com DDD (10 ou 11 dígitos).'
+          msgErro.classList.remove('hidden')
+          btnEnviar.innerHTML = textoOriginal
+          btnEnviar.disabled = false
+          telefoneInput.focus()
+          return
+        }
+
         try {
           // 1. SALVAR NO FIREBASE
           await addDoc(collection(db, 'leads'), {
@@ -2604,10 +2613,10 @@
           console.error('Erro geral: ', error)
           msgErro.textContent = 'Erro ao conectar. Verifique sua internet.'
           msgErro.classList.remove('hidden')
-
-          btnEnviar.innerHTML = textoOriginal
-          btnEnviar.disabled = false
         }
+
+        btnEnviar.innerHTML = textoOriginal
+        btnEnviar.disabled = false
       })
     </script>
 
